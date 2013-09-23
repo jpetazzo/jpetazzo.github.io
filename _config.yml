@@ -1,0 +1,4 @@
+name: "~jpetazzo/"
+markdown: redcarpet
+pygments: true
+permalink: pretty
