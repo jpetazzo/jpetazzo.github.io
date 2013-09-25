@@ -19,9 +19,9 @@ body {
   text-align: center;
 }
 
-h1 { font-size: 250%; }
-h2 { font-size: 185%; }
-h3 { font-size: 140%; }
+h1 { font-size: 250%; white-space: nowrap; }
+h2 { font-size: 185%; margin-top: 1em; }
+h3 { font-size: 140%; margin-top: 0.5em; }
 
 h4, h5, h6 {
   font-size: 100%;
@@ -81,9 +81,11 @@ ul.posts span {
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  max-width: 42em;
   margin: 3em auto 2em;
   line-height: 1.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .site .header a {
