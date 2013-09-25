@@ -47,7 +47,7 @@ jpetazzo@tarrasque:~$ stevedore new jekyll
 jpetazzo@tarrasque:~$ stevedore enter jekyll
 jpetazzo@stevedore-jekyll:~$ sudo apt-get install -qy ruby1.8 rubygems1.8
 [...]
-jpetazzo@stevedore-jekyll:~$ gem install jekyll
+jpetazzo@stevedore-jekyll:~$ sudo gem install jekyll
 [...]
 jpetazzo@stevedore-jekyll:~$ jekyll new jpetazzo.github.io
 jpetazzo@stevedore-jekyll:~$ cd jpetazzo.github.io
