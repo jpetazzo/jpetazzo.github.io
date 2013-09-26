@@ -19,8 +19,8 @@ body {
   text-align: center;
 }
 
-h1 { font-size: 250%; white-space: nowrap; }
-h2 { font-size: 185%; margin-top: 1em; }
+h1 { font-size: 250%; text-align: left; line-height: 1.5em; }
+h2 { font-size: 185%; margin-top: 1em;  line-height: 1em; }
 h3 { font-size: 140%; margin-top: 0.5em; }
 
 h4, h5, h6 {
