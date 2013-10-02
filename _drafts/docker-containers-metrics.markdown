@@ -3,9 +3,10 @@ layout: post
 title: "Gathering container metrics"
 ---
 
-Linux Containers rely on control groups; and control groups expose
-a lot of metrics about CPU, memory, and block I/O usage. We will see
-how to access those metrics, and how to obtain network usage metrics
+Linux Containers rely on [control groups]
+which not only track groups of processes, but also expose 
+a lot of metrics about CPU, memory, and block I/O usage. 
+We will see how to access those metrics, and how to obtain network usage metrics
 as well. This is relevant for "pure" LXC containers, as well as for
 Docker containers.
 
@@ -19,7 +20,7 @@ Under that directory, you will see multiple sub-directories, called
 corresponds to a different cgroup *hierarchy*.
 
 On older systems, the control groups might be mounted on `/cgroup`,
-without distinct hierarchies: in that case, instead of seeing
+without distinct hierarchies. In that case, instead of seeing
 the sub-directories, you will see a bunch of files in that directory,
 and possibly some directories corresponding to existing containers.
 
@@ -57,10 +58,10 @@ how many groups they contain.
 
 You can also look at `/proc/<pid>/cgroup` to see which control groups
 a process belongs to. The control group will be shown as a path relative
-to the root of the hierarchy mountpoint; i.e. `/` means "this process
+to the root of the hierarchy mountpoint; e.g. `/` means "this process
 has not been assigned into a particular group", while `/lxc/pumpkin`
 means that the process is likely to be a member of a container named
-`pumkin`.
+`pumpkin`.
 
 
 ### Finding the cgroup for a given container
@@ -94,10 +95,10 @@ Those will be found in the `memory` cgroup (duh!). Note that the memory
 control group adds a little overhead, because it does very fine-grained
 accounting of the memory usage on your system. Therefore, many distros
 chose to *not* enable it by default. Generally, to enable it, all you
-have to do is to add a kernel command-line parameter; namely
+have to do is to add some kernel command-line parameters:
 `cgroup_enable=memory swapaccount=1`.
 
-The metrics are in the pseudo-file `memory.stat`; here is what it will
+The metrics are in the pseudo-file `memory.stat`. Here is what it will
 look like:
 
 ```
@@ -138,7 +139,7 @@ to the processes within the cgroup, excluding sub-cgroups. The second half
 Some metrics are "gauges", i.e. values that can increase or decrease
 (e.g. `swap`, the amount of swap space used by the members of the cgroup).
 Some others are "counters", i.e. values that can only go up, because
-they represent occurences of a specific event (e.g. `pgfault`, which
+they represent occurrences of a specific event (e.g. `pgfault`, which
 indicates the number of page faults which happened since the creation
 of the cgroup; this number can never decrease).
 
@@ -146,7 +147,7 @@ Let's see what those metrics stand for. All memory amounts are in bytes
 (except for event counters).
 
 - **cache** is the amount of memory used by the processes of this
-  control group, that can be associated precisely with a block on a
+  control group that can be associated precisely with a block on a
   block device. When you read and write
   files from and to disk, this amount will increase. This will be the
   case if you use "conventional" I/O (`open`, `read`, `write` syscalls)
@@ -204,7 +205,7 @@ Let's see what those metrics stand for. All memory amounts are in bytes
   filesystems mounted by this control group). Now, what's the difference
   between "active" and "inactive"? Pages are initially "active";
   and at regular intervals, the kernel sweeps over the memory,
-  and tags some pages as "inactive". Whenever they are acceded again,
+  and tags some pages as "inactive". Whenever they are accessed again,
   they are immediately retagged "active". When the kernel is almost
   out of memory, and time comes to swap out to disk, the kernel
   will swap "inactive" pages.
@@ -212,7 +213,7 @@ Let's see what those metrics stand for. All memory amounts are in bytes
 - Likewise, the **cache** memory is broken down into **active_file**
   and **inactive_file**. The exact formula is
   **cache**=**active_file**+**inactive_file**+**tmpfs**.
-  The exact rule used by the kernel to move memory pages betwen
+  The exact rules used by the kernel to move memory pages between
   active and inactive sets are different from the ones used
   for anonymous memory, but the general principle is the same.
   Note that when the kernel needs to reclaim memory, it is cheaper
@@ -222,7 +223,7 @@ Let's see what those metrics stand for. All memory amounts are in bytes
 
 - **unevictable** is the amount of memory that cannot be reclaimed;
   generally, it will account for memory that has been "locked"
-  with `mlock`. It is often used by some crypto frameworks to make
+  with `mlock`. It is often used by crypto frameworks to make
   sure that secret keys and other sensitive material never gets
   swapped out to disk.
   
@@ -235,7 +236,7 @@ Let's see what those metrics stand for. All memory amounts are in bytes
 Accounting for memory in the page cache is very complex. If two
 processes in different control groups both read the same file
 (ultimately relying on the same blocks on disk), the corresponding
-memory charge will be slit between the control groups. It's nice,
+memory charge will be split between the control groups. It's nice,
 but it also means that when a cgroup is terminated, it could
 increase the memory usage of another cgroup, because they are
 not splitting the cost anymore for those memory pages.
@@ -258,21 +259,22 @@ processes.
 
 Those times are expressed in ticks of 1/100th of second.
 (Actually, they are expressed in "user jiffies". There are
-`USER_HZ` [jiffies][] per second, and on x86 systems, `USER_HZ`
+`USER_HZ` *"jiffies"* per second, and on x86 systems, `USER_HZ`
 is 100. This used to map exactly to the number of scheduler
 "ticks" per second; but with the advent of higher frequency
-scheduling, as well as [tickless kernels][], the number of
+scheduling, as well as [tickless kernels],
+the number of
 kernel ticks wasn't relevant anymore. It stuck around anyway,
-mainly for legacy and compatibility reason.)
+mainly for legacy and compatibility reasons.)
 
 
 ### Block I/O metrics
 
 Block I/O is accounted in the `blkio` controller. Different
 metrics are scattered across different files. While you can
-find in-depth details in the [blkio-controller][] file
-in the kernel documentation, here is a short list of the
-most relevant ones.
+find in-depth details in the [blkio-controller]
+file in the kernel documentation, here is a short list of the
+most relevant ones:
 
 - **blkio.sectors** contains the number of 512-bytes sectors
   read and written by the processes member of the cgroup,
@@ -281,7 +283,7 @@ most relevant ones.
 
 - **blkio.io_service_bytes** indicates the number of bytes
   read and written by the cgroup. It has 4 counters per
-  device, because for each device, it differenciates between
+  device, because for each device, it differentiates between
   synchronous vs. asynchronous I/O, and reads vs. writes.
 
 - **blkio.io_serviced** is similar, but instead of showing
@@ -363,7 +365,7 @@ going through the NAT layer; you will also have to add traffic
 going through the userland proxy.
 
 Then, you will need to check those counters on a regular basis.
-If you happen to use [collectd][],
+If you happen to use [collectd],
 there is a nice plugin to automate iptables counters collection.
 
 
@@ -371,10 +373,10 @@ there is a nice plugin to automate iptables counters collection.
 
 Since each container has a virtual Ethernet interface, you might
 want to check directly the TX and RX counters of this interface.
-Howevever, this is not as easy as it sounds. If you use Docker
-(as of current version 0.6) or `lxc-start`, you will notice that
+However, this is not as easy as it sounds. If you use Docker
+(as of current version 0.6) or `lxc-start`, then you will notice that
 each container is associated to a virtual Ethernet interface in
-your host, with a name looking like `vethKk8Zqi`. Figuring out
+your host, with a name like `vethKk8Zqi`. Figuring out
 which interface corresponds to which container is, unfortunately,
 difficult. (If you know an easy way, let me know.)
 
@@ -409,8 +411,8 @@ For instance:
 
     ip netns exec mycontainer netstat -i
 
-How does the naming system work? How does `ip netns` know
-where is `mycontainer`? Answer: it is using the namespaces
+How does the naming system work? How does `ip netns` find 
+`mycontainer`? Answer: by using the namespaces
 pseudo-files. Each process belongs to one network namespace,
 one PID namespace, one `mnt` namespace, etc.; and those
 namespaces are materialized under `/proc/<pid>/ns/`.
@@ -431,7 +433,7 @@ namespace of a container, we need to:
 - execute `ip netns exec <somename> ...`.
 
 Now, we need to figure out a way to find the PID of a
-procsess (any process!) running in the container that we
+process (any process!) running in the container that we
 want to investigate. This is actually very easy. You have
 to locate one of the control groups corresponding to the
 container. We explained how to locate those cgroups in
@@ -456,7 +458,7 @@ ln -sf /proc/$PID/ns/net /var/run/netns/$CID
 ip netns exec $CID netstat -i
 ```
 
-The same mechanism is used in [Pipework][] to setup network
+The same mechanism is used in [Pipework] to setup network
 interfaces within containers *from outside* the containers.
 
 
@@ -474,7 +476,7 @@ that lets you do low-level system calls).
 You need to use a special system call, `setns()`, which lets the
 current process enter any arbitrary namespace. It requires,
 however, an open file descriptor to the namespace pseudo-file
-(remember, that's the pseudo-file, in `/proc/<pid>/ns/net`).
+(remember: that's the pseudo-file in `/proc/<pid>/ns/net`).
 
 However, there is a catch: you must not keep this file descriptor
 open. If you do, when the last process of the control group
@@ -493,12 +495,11 @@ Sometimes, you do not care about real time metric collection,
 but when a container exits, you want to know how much CPU, memory,
 etc. it has used. 
 
-The current implementation of Docker (as of 0.6) make this
+The current implementation of Docker (as of 0.6) makes this
 particularly challenging, because it relies on `lxc-start`, and when
 a container stops, `lxc-start` carefully cleans up behind it.
-If you really want to do it anyway, here is how. For each container,
-start a collection process, and move it to the control groups that
-you want to monitor, by writing its PID to the `tasks` file of the
+If you really want to collect the metrics anyway, here is how. For each container, start a collection process, and move it to the control groups that
+you want to monitor by writing its PID to the `tasks` file of the
 cgroup. The collection process should periodically re-read the `tasks`
 file to check if it's the last process of the control group.
 (If you also want to collect network statistics as explained
@@ -529,9 +530,8 @@ To recap, we covered:
 - a technique to gather overall metrics when a container exits.
 
 As we have seen, metrics collection is not insanely difficult,
-but still involves many complicated steps, with special cases
-for e.g. the network subsystem. Docker will take care of this,
-or at least, expose hooks to make it more straightforward.
+but still involves many complicated steps, with special cases like those for the network subsystem. Docker will take care of this,
+or at least expose hooks to make it more straightforward.
 It is one of the reasons why we repeat over and over "Docker
 is not production ready yet": it's fine to skip metrics for
 development, continuous testing, or staging environments,
@@ -541,17 +541,19 @@ without metrics!
 Last but not least, note that even with all that information,
 you will still need a storage and graphing system for those metrics.
 There are many such systems out there. If you want something that you can
-deploy on your own, you can check e.g. [collectd][] or [Graphite][].
+deploy on your own, you can check e.g. [collectd] or [Graphite].
 There are also "-as-a-Service" offerings. Those services will store
 your metrics and let you query them in various ways, for a given price.
-Some examples include [Librato][], AWS CloudWatch,
+Some examples include [Librato], [AWS CloudWatch],
 [New Relic Server Monitoring], and many more.
 
+[control groups]: https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt
 [blkio-controller]: https://www.kernel.org/doc/Documentation/cgroups/blkio-controller.txt
 [collectd]: http://collectd.org/
 [Graphite]: http://graphite.wikidot.com/
 [jiffies]: http://en.wikipedia.org/wiki/Jiffy_(time)
 [Librato]: https://metrics.librato.com/
 [New Relic Server Monitoring]: http://newrelic.com/server-monitoring
+[AWS CloudWatch]: http://aws.amazon.com/cloudwatch/
 [Pipework]: https://github.com/jpetazzo/pipework
 [tickless kernels]: http://lwn.net/Articles/549580/
