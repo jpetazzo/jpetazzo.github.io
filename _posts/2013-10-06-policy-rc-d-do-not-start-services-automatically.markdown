@@ -41,30 +41,34 @@ If you're not root, you can use the `sudo tee` trick, i.e.:
 ## Why she got no bangs?
 
 If you already knew about `policy-rc.d`, here is a second chance to learn
-something new today :-)
+something new today!
 
-You might be wondering "shouldn't I put `#!/bin/sh` in the beginning of
-the policy-rc.d script?"
+You might be wondering *"shouldn't I put `#!/bin/sh` in the beginning of
+the policy-rc.d script?"*
 
 If there is no [shebang] at the beginning of the file, the OS will try to
-execute it as a "normal" binary. The `exec*` syscall will fail with
+execute it as a "normal" binary. The `execve` syscall will fail with
 `ENOEXEC` (Exec format error). Well, unless your script happen to
 conveniently have an ELF signature (or another binary signature recognized
 by your system), but this is very unlikely.
 
 What happens next depends on the calling program.
 
-The `exec*` wrappers in the libc will try to use `/bin/sh` as a fallback
+The `exec` wrappers in the libc will try to use `/bin/sh` as a fallback
 to invoke the program -- which is why I didn't deem necessary to add a
 shebang to the policy-rc.d script.
 
-However, if you are running a shell, it will use itself as a fallback.
-In other words, if you call the policy-rc.d script from `bash`, then
-`bash` will be used to execute it.
+However, if you are running a shell, it will use `execve` directly,
+and if it fails, it will try to execute the script itself.
+In other words, if you call a script without shebang from `bash`, then
+`bash` will be used to execute it. (If the script is neither a standard
+executable nor a bash script, major confusion will ensue.)
 
-And if you are doing "raw syscalls", you will receive an unadultered
-`ENOEXEC` error, and can do whatever you want to handle it. This is
-the case if you try `os.execv(...)` in Python, for instance.
+Note that in some languages, `execvp`, `execlp`, and other `execve`
+wrappers do not always call their libc counterparts. This is why in
+Python (for instance), if you use `execvp` on a script without a shebang,
+you will get the `ENOEXEC` error. It will not try to use `/bin/sh` like
+the normal libc call.
 
 Isn't that great? :-)
 
