@@ -20,7 +20,7 @@ in a shaker. Add a dash of angostora, a dash of lemon juice, about 1 oz of
 gold rum, 1 oz of cointreau. Shake with ice. Add about 4 oz of perrier or
 sparkling water. Enjoy!
 
-![Sesquimosa beta-tester](images/sesquimosa.jpg)
+![Sesquimosa beta-tester](/assets/sesquimosa.jpg)
 
 
 [and a half]: http://en.wiktionary.org/wiki/sesqui-
