@@ -173,6 +173,11 @@ ul.posts span {
   border: none;
 }
 
+/* I will probably have to tweak that later. But it's good enough for now. */
+.post img {
+    width: 100%;
+}
+
 /* terminal */
 .post pre.terminal {
   border: 1px solid #000;
