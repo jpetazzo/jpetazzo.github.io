@@ -19,8 +19,6 @@ All opinions expressed here are my own.
 released in March 2013 by Docker Inc. (my employer), and since then,
 many projects have been based on (or integrated) with it.
 
-![Docker Logo](/assets/small-docker-logo.png)
-
 Linux Containers being a very good component for Platform-as-a-Service
 systems, multiple Open Source PAAS were started on top of Docker.
 [Deis] is one of them; [Flynn] is another. Until very recently,
@@ -52,6 +50,8 @@ Each service appliance can be deployed (and possibly scaled) individually.
 
 ![The Grid](/assets/grid.png)
 
+*The Grid: the 4 large squares are hosts, the small squares are service
+appliances. L, for instance, is Lorne, the host management service.*
 
 ### Bestiary of Service Appliances
 
