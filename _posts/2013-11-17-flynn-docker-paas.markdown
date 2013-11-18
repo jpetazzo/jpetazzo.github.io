@@ -367,11 +367,10 @@ after this [other Flynn] ☺
 
 ### Additional reading...
 
-- Flynn dev environment (as a Vagrantfile) and video demo:
-  https://github.com/flynn/flynn-dev
-- Flynn blog post about demo and roadmap, including video of the first
-  meet-up:
-  https://flynn.io/blog/demo-roadmap
+- Flynn [dev environment](https://github.com/flynn/flynn-dev)
+  (as a Vagrantfile), including video demo
+- Flynn [blog post about demo and roadmap](https://flynn.io/blog/demo-roadmap),
+  including video of the first meet-up
 
 
 [Cocaine]: http://api.yandex.com/cocaine/
