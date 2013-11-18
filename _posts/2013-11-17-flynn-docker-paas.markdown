@@ -48,6 +48,21 @@ code builds, code execution, etc.
 
 Each service appliance can be deployed (and possibly scaled) individually.
 
+
+### Layer 0 / Layer 1
+
+Flynn is broken down in two layers. Layer 0 provides basic services: host
+management, scheduling framework, and service discovery. This can be used
+standalone; for instance if you need something to manage a cluster of Docker
+machines, without the whole PAAS business on top of it. Layer 0 currently
+uses Go RPC to communicate (but this will be replaced by a cross-platform
+RPC system later).
+
+Layer 1 contains everything else that is needed to implement the PAAS itself.
+PAAS-specific concepts (applications, builds...) are implementend in Layer 1,
+and don't exist in Layer 0.
+
+
 ![The Grid](/assets/grid.png)
 
 *The Grid: the 4 large squares are hosts, the small squares are service
@@ -55,8 +70,8 @@ appliances. L, for instance, is Lorne, the host management service.*
 
 ### Bestiary of Service Appliances
 
-Here are some of those service appliances. Hopefully that will make the
-concept a bit clearer.
+Here are some of the service appliances. The first two implement "Layer 0",
+and everything else is "Layer 1".
 
 **Lorne** is the host service. There will be one instance of it on each
 host in the cluster. It interfaces with Docker. If I understand correctly,
@@ -67,6 +82,16 @@ current state of the grid, and the current resource allocation on each node,
 where should I run this new job, which needs such and such resources?".
 To quote the authors: "this does a job similar to Mesos, but for 1000x less
 lines of code".
+To be more accurate, Sampi itself doesn't do any scheduling; but it
+presents a consistent view of the cluster (and resource usage) to the
+actual schedulers, and serializes transactions. In other words, it prevents
+two concurrent schedulers (or two concurrent operations by the same
+scheduler) from putting the cluster in a state where resource constraints
+wouldn't be satisfied anymore. This is inspired by the
+Google [Omega] paper. The real schedulers are implemented on top of Sampi;
+there are currently two tiny schedulers implemented in the controller
+API (to support basic scaling and one-off jobs), and something more robust
+will be added later.
 
 There is a **git frontend**. It's a generic SSH server, able to accept
 git-over-SSH connections, receive git pushes, and then ship them to other
@@ -155,14 +180,14 @@ model and use ours instead?". One size doesn't fit all: since no system will
 be able to cater for everyone's needs, just make sure that you can replace
 it with a more suitable version!
 
-I blieve that those principles are good not only for Flynn, not only for PAAS,
+Those principles are good not only for Flynn, not only for PAAS,
 but for most distributed systems out there.
 
 
 ## Service discovery
 
-Service discovery is a key part in any distributed system, so I believe
-that it deserves a section of its own.
+Service discovery is a key part in any distributed system, so it deserves
+a section of its own.
 
 
 ### Etcd
@@ -262,10 +287,18 @@ cheap and convenient to call the service next door, I mean next
 host, you do it -- and the result is a higher interdependency
 of the components.
 
-From a user point of view, another key difference is that Flynn
-applications seem to be stateless, and have to rely on database
-service appliances to persist state; while dotCloud offers stateful
-containers. Don't get me wrong: this is not a weakness of Flynn.
+From a user point of view, another key difference is the way to
+persist state. If you have used Heroku, you know that you cannot
+persist anything without relying on a 3rd party service (like S3,
+or, most frequently, the PostgreSQL add-on). And if you have used
+dotCloud, you know that conversely, each scaled instance of a service
+has its own local storage that you can retain across successive
+deployments. Flynn implements both, at different levels. Containers
+implementing service appliances can have persistent storage
+(that doesn't get removed when the container is terminated,
+and can be re-used by other containers), but apps on top of Layer 1
+will initially be stateless. 
+
 When building and operating the dotCloud platform at scale, we
 learned (the hard way) that stateful containers are much more
 complex to get right. When a container is stateless, you can
@@ -332,6 +365,15 @@ after this [other Flynn] ☺
 > I thought I'd never see. And then one day... I got in.
 
 
+### Additional reading...
+
+- Flynn dev environment (as a Vagrantfile) and video demo:
+  https://github.com/flynn/flynn-dev
+- Flynn blog post about demo and roadmap, including video of the first
+  meet-up:
+  https://flynn.io/blog/demo-roadmap
+
+
 [Cocaine]: http://api.yandex.com/cocaine/
 [CoreOS]: http://coreos.com/
 [Deis]: http://deis.io/
@@ -341,6 +383,7 @@ after this [other Flynn] ☺
 [Flynn]: http://flynn.io/
 [gitreceive]: https://github.com/progrium/gitreceive
 [Jeff Lindsay]: https://twitter.com/progrium
+[Omega]: http://eurosys2013.tudos.org/wp-content/uploads/2013/paper/Schwarzkopf.pdf
 [other Flynn]: http://tron.wikia.com/wiki/Kevin_Flynn
 [Paxos]: http://en.wikipedia.org/wiki/Paxos_(computer_science)
 [Raft]: http://highscalability.com/blog/2013/8/7/raft-in-search-of-an-understandable-consensus-algorithm.html
