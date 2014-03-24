@@ -12,6 +12,8 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
 
+        <!-- Feed Me! -->
+        <link rel="alternate" type="application/atom+xml" title="{{ site.name | xml_escape }}" href="{{ site.uri }}/atom.xml" />
     </head>
     <body>
 
@@ -25,7 +27,7 @@
           <div class="footer">
             <div class="contact">
               <p>
-                Jérôme Petazzoni<br />
+                {{ site.author }}<br />
                 Tinkerer Extraordinaire
               </p>
             </div>
