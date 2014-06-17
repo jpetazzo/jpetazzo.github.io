@@ -16,6 +16,8 @@ will pass along to the corporate proxy.
 
 ## I want this now!
 
+Just do this:
+
 ```
 docker run --net host jpetazzo/squid-in-a-can
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to 3129
