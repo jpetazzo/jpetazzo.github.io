@@ -71,6 +71,9 @@ Ideas for improvement:
 - easy chaining to an upstream proxy
 - setup the iptables automatically if the container runs in privileged mode
 
+Don't hesitate to fork it on [GitHub] and contribute! :-)
+
 
 [CVE-2009-0801]: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0801
 [Docker Hub]: https://registry.hub.docker.com/u/jpetazzo/squid-in-a-can/
+[GitHub]: https://github.com/jpetazzo/squid-in-a-can
