@@ -206,7 +206,7 @@ package).
 
 First, figure out the PID of the container you want to enter:
 
-    PID=$(docker inspect --format {{.State.Pid}} <container_name_or_ID>)
+    PID=$(docker inspect --format {{ "{{.State.Pid}}" }} <container_name_or_ID>)
 
 Then enter the container:
 
