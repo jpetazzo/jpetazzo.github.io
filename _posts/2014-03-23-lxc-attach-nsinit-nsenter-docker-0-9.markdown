@@ -65,7 +65,7 @@ cp nsenter /usr/local/bin
 Now, find the PID of the first process of the container (actually,
 any PID will do, but this is just easier and safer):
 
-    PID=$(docker inspect --format '{{.State.Pid}}' my_container_id)
+    {%raw%}PID=$(docker inspect --format '{{.State.Pid}}' my_container_id){%endraw%}
 
 Then, enter like this:
 
