@@ -8,6 +8,8 @@ my containers?" and other people will tell them "Run an SSH server
 in your containers!" but that's a very bad practice. We will see
 why it's wrong, and what you should do instead.
 
+*Note: if you want to comment or share this article, use the
+canonical version hosted on the [Docker Blog]. Thank you!*
 
 ## Your containers should not run an SSH server
 
@@ -281,3 +283,4 @@ informed decision!
 [volume]: https://docs.docker.com/userguide/dockervolumes/
 [namespaces]: http://blog.dotcloud.com/under-the-hood-linux-kernels-on-dotcloud-part
 [jpetazzo/nsenter]: https://github.com/jpetazzo/nsenter
+[Docker Blog]: http://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/
