@@ -123,8 +123,14 @@ ul.posts span {
   font-size: 80%;
   color: #666;
   border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
   margin-top: 2em;
   overflow: hidden;
+}
+
+.site .cc {
+    font-size: 60%;
+    colo: #666;
 }
 
 .site .footer .contact {
