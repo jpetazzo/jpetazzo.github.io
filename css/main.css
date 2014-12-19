@@ -198,3 +198,11 @@ ul.posts span {
   border-left: 3px solid #ccc;
 
 }
+
+.hn-discuss-button {
+  display: inline-block;
+  padding: 0 0 0 21px;
+  background: url(/assets/hn.png) left center no-repeat;
+  vertical-align: top;
+  margin-top: -2px;
+}

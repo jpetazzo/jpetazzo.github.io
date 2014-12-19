@@ -4,6 +4,23 @@ layout: default
 <!--<h1>{{ page.title }}</h1>-->
 <!--<p class="meta">{{ page.date | date_to_string }}</p>-->
 
+<div id="socialdiv">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="jpetazzo">Tweet</a>
+<script>
+!function(d,id){
+  var js,fjs=d.getElementById('socialdiv'),p=/^http:/.test(d.location)?'http':'https';
+  if (!d.getElementById(id)) {
+    js=d.createElement('script');
+    js.id=id;
+    js.src=p+'://platform.twitter.com/widgets.js';
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document, 'twitter-wjs');
+</script>
+
+<a class="hn-discuss-button" href="javascript:window.location=%22http://news.ycombinator.com/submitlink?u=%22+encodeURIComponent(document.location)+%22&t=%22+encodeURIComponent(document.title)">Discuss on Hacker News</a>
+</div>
+
 <div class="post">
 {{ content }}
 </div>
