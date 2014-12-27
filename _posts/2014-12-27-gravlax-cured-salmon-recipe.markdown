@@ -13,7 +13,9 @@ that's OK because you can keep the salmon a few days in the fridge
 without any problem, since it will be cured). Don't hesitate to
 scale down the recipe if you have less people!
 
-You need:
+
+## Ingredients
+
 - 4 pounds of salmon (either filets with the skin, or a slice of the
   whole fish, cut "en portefeuille")
 - 5 ounces of sugar
@@ -26,12 +28,15 @@ You need:
 - 2 big lemons
 - some olive oil
 
-If you see some fishbones poking out of the salmon, remove them now.
-
 Finely chop the dill. If you don't have specialized equipment, you
 can use kitchen scissors. Better remove the stems, at least the
 bigger ones; it's not mandatory but it will be more pleasant (and
 the taste is in the leaves and smaller stems anyway).
+
+
+## The fish
+
+If you see some fishbones poking out of the salmon, remove them now.
 
 In a bowl, mix the sugar, salt, one small teaspoon of ground pepper,
 and half of the dill.
@@ -66,6 +71,9 @@ between the skin and the flesh.
 Now, wash your hands 3 times, because after cutting the fish, they
 probably stink :-D
 
+
+## The sauce
+
 Let's prepare the sauce. Mix the greek yogurt, the juice of the two
 lemons, one tablespoon of olive oil, and the other half of the dill.
 Add a bit of salt and pepper according to your taste.
@@ -75,3 +83,11 @@ but with the sauce, it should be just perfect. In my experience, after
 a day or so, it doesn't taste *that* salty, and can be enjoyed without
 the sauce. I don't know if the taste of salt really goes away, or if
 me tastebuds get accustomed.
+
+
+## Serve!
+
+I generally split the salmon in multiple bowls, paired with smaller
+bowls containing the sauce. Unless your guests enjoy the smell of
+fish on their fingers, you probably want to consider providing picks
+(wooden toothpicks work just fine) :-)
