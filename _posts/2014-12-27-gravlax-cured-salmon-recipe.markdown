@@ -7,14 +7,14 @@ This is my recipe for Gravlax (cured salmon). It makes a great appetizer.
 The only downside is that you must prepare it in advance, since it needs
 to cure 36 to 48 hours in the fridge.
 
+
+## Ingredients
+
 The following quantities will easily feed 15 persons if the salmon is
 the main appetizer (and you will probably have some leftovers, but
 that's OK because you can keep the salmon a few days in the fridge
 without any problem, since it will be cured). Don't hesitate to
 scale down the recipe if you have less people!
-
-
-## Ingredients
 
 - 4 pounds of salmon (either filets with the skin, or a slice of the
   whole fish, cut "en portefeuille")
