@@ -60,7 +60,7 @@ can be done only with root access on the Docker host.
 The simplest way to install [nsenter] and its associated
 `docker-enter` script is to run:
 
-   $ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
+    $ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
 
 For more details, check the [nsenter] project page.
 
@@ -207,7 +207,7 @@ this is already pretty complex as it is right now!)
 
 This little snippet is almost copy-paste ready.
 
-```shell
+```sh
 #!/bin/sh
 set -e
 CONTAINER=charlie
