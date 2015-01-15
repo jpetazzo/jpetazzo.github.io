@@ -7,7 +7,12 @@ This morning, I watched AWS' webinar presenting their container service.
 Here are some quick notes, for those of you who are as curious as I was
 about it!
 
-This is not meant to be [an] [intro] [to] [Docker]. This is not meant to be an
+This is not meant to be
+[an](http://vimeo.com/111751807)
+[intro](https://sysadmincasts.com/episodes/31-introduction-to-docker)
+[to](https://www.youtube.com/watch?v=FdkNAjjO5yQ)
+[Docker](https://www.docker.com/whatisdocker/).
+This is not meant to be an
 intro to EC2 or to AWS. This is for people who are already familiar with
 AWS, specifically with EC2, and who are already familiar with Docker,
 and wonder what's behind the ECS (EC2 Container Service) announcements
@@ -15,6 +20,8 @@ made at AWS re:invent last November.
 
 
 ## Bullet points
+
+TL,DR:
 
 - it's supposed to be a set of building blocks, usable "as-is" or as
   part of something more complex
@@ -31,6 +38,7 @@ made at AWS re:invent last November.
   an internal registry as the image name, and with appropriate
   security groups, it might be safe-ish)
 
+![I'm out of bullet points](/assets/bulletpoints.jpg)
 
 ## Glossary of terms
 
@@ -164,10 +172,6 @@ or useful tip that would be useful for others, don't hesitate
 to let me know!
 
 
-[an]: http://vimeo.com/111751807
-[intro]: https://sysadmincasts.com/episodes/31-introduction-to-docker
-[to]: https://www.youtube.com/watch?v=FdkNAjjO5yQ
-[Docker]: https://www.docker.com/whatisdocker/
 [ECS docs]: http://aws.amazon.com/documentation/ecs/
 [ECS agent repo on github]: http://aws.amazon.com/documentation/ecs/
 [Fig]: http://www.fig.sh
