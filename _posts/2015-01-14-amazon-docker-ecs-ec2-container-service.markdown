@@ -32,11 +32,9 @@ TL,DR:
 - the service is currently in preview (behind a sign-up wall)
   in us-east-1; general availability will come in the next few months
 - there is no console dashboard yet; you have to use the CLI or API
-- it looks like you can only start containers from images that are
-  on the Docker Hub, and public (I'm not sure about that point; it
-  wasn't quite clear; I suppose that you might be able to specify
-  an internal registry as the image name, and with appropriate
-  security groups, it might be safe-ish)
+- for now, you can only start containers from public images hosted
+  on the Docker Hub, but that's expected to change when the service
+  goes out of preview
 
 ![I'm out of bullet points](/assets/bulletpoints.jpg)
 
