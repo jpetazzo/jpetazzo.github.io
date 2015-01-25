@@ -108,13 +108,15 @@ Now, diving into the details; there are 3 ways to start a *task*:
 
 The webinar had a demo involving Mesos; they started container from
 Marathon, from Chronos, and using the CLI as well, and the containers
-were visible everywhere. That looked cool, but the implementation
-details aren't clear: does the ECS agent behave as (or embed) a Mesos
-Slave connecting to a Mesos Master? Or does the ECS service itself
-connect to Mesos to offer all the resources...? I asked a few questions
-about this, but they weren't selected, so we don't know yet. They
-indicated that the code to use Mesos and ECS together was not open
-yet, but would eventually be.
+were visible everywhere. That looked cool. Initially, I didn't
+understand how it worked; but the people who built it were kind enough
+to chime in and explain:
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/jpetazzo">@jpetazzo</a> the Mesos integration is via a Mesos scheduler driver</p>&mdash; Deepak Singh (@mndoci) <a href="https://twitter.com/mndoci/status/555554709650436097">January 15, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/mndoci">@mndoci</a> <a href="https://twitter.com/jpetazzo">@jpetazzo</a> the scheduler drive speaks to AWS ECS only, there are no Mesos masters or slaves involved.  Just ECS + Marathon/Chronos</p>&mdash; William Thurston (@williamthurston) <a href="https://twitter.com/williamthurston/status/555631721769488384">January 15, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 ## Networking
