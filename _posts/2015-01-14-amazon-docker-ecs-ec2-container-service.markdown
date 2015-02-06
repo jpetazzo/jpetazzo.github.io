@@ -18,6 +18,9 @@ AWS, specifically with EC2, and who are already familiar with Docker,
 and wonder what's behind the ECS (EC2 Container Service) announcements
 made at AWS re:invent last November.
 
+AWS has made the [video] available if you want to watch the webinar
+yourself.
+
 
 ## Bullet points
 
@@ -179,3 +182,4 @@ to let me know!
 [Docker Machine]: https://github.com/docker/machine
 [Docker Swarm]: https://github.com/docker/swarm
 [Docker Hub Enterprise]: http://blog.docker.com/2014/12/docker-announces-docker-hub-enterprise/
+[video]: https://connect.awswebcasts.com/p59n405xep5/
