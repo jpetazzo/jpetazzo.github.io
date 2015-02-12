@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docker at Docker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; font-size: 150%; }
+
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .red { color: #fa0000; }
+      .gray { color: #ccc; }
+      .small { font-size: 70%; }
+      .underline { text-decoration: underline; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      .pic {
+        vertical-align: middle;
+        text-align: center;
+        padding: 0 0 0 0 !important;
+      }
+      .pic img {
+        width: 100%;
+      }
+      .title {
+        vertical-align: middle;
+        text-align: center;
+      }
+      .title {
+        font-size: 2em;
+      }
+      .title .remark-slide-number {
+        font-size: 0.5em;
+      }
+      .quote {
+        background: #eee;
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        font-style: italic;
+      }
+      .quote:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+      }
+      .quote p {
+        display: inline;
+      }
+      li p { line-height: 1.25em; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title
+
+# Docker at Docker
+
+## *
+
+### Jérôme Petazzoni - [@jpetazzo](https://twitter.com/jpetazzo)
+
+### Docker - [@docker](https://twitter.com/docker)
+
+---
+
+# Who am I?
+
+- Jérôme Petazzoni — [@jpetazzo](https://twitter.com/jpetazzo)
+
+- the very same person who brought you
+  [Docker-in-Docker](http://blog.docker.com/2013/09/docker-can-now-run-within-docker/)
+
+---
+
+class: pic
+
+![Docker-in-Docker-1](http://blog.docker.com/wp-content/uploads/2013/08/docker-meme.jpg)
+
+---
+
+class: pic
+
+![Docker-in-Docker-2](https://i.imgflip.com/hh6bp.jpg)
+
+---
+
+class: pic
+
+![Docker-in-Docker-3](https://i.imgflip.com/hh69x.jpg)
+
+---
+
+class: pic
+
+![Docker-in-Docker-4](https://i.imgflip.com/hh67a.jpg)
+
+---
+
+# Who am I?
+
+- Jérôme Petazzoni — [@jpetazzo](https://twitter.com/jpetazzo)
+
+- the very same person who brought you
+  [Docker-in-Docker](http://blog.docker.com/2013/09/docker-can-now-run-within-docker/)
+
+- Tamer of Unicorns and Tinkerer Extraordinaire.red[¹]
+
+- Grumpy French DevOps person who loves Shell scripts
+  <br/> .small[Go Away Or I Will Replace You Wiz Le Very Small Shell Script]
+
+- *Some* experience with containers
+  <br/> (built and operated the dotCloud PaaS)
+
+.footnote[.red[¹] At least one of those is actually on my business card]
+
+---
+
+# Outline
+
+- What we run
+
+- Where it runs
+
+- What we don't run
+
+- How we build and deploy
+
+- The bright happy future ahead
+
+---
+
+class: title
+
+# What we run
+
+---
+
+# Docker Hub (high level)
+
+- [hub.docker.com](http://hub.docker.com/)
+
+- "GitHub for containers"
+
+- Base images (busybox, debian, ubuntu, redis, ...)
+
+- Public images (jpetazzo/dind ...)
+
+- Private images (nsa/prism.red[*] ...)
+
+- Automated builds (from GitHub/BitBucket)
+
+- More to come!
+
+.footnote[.red[*] We can't confirm or deny if this is an actual example.]
+
+---
+
+# Docker Hub (low level)
+
+- Web frontend: Django app
+
+  - soon with React frontend + Django backend
+
+- Heavy use of Celery workers
+
+- Same image for frontend and workers
+
+  - start gunicorn or celery depending on configuration
+
+  - this ensures code consistency
+
+---
+
+# Registry
+
+- Stores and serves Docker images
+
+- Flask app (v1)
+
+  - https://github.com/jedisct1/UCarp
+
+- Golang app (v2)
+
+  - https://github.com/docker/distribution
+
+---
+
+# Automated builds (aka Highland)
+
+- Triggered by GitHub / BitBucket webhooks
+
+- Pulls code
+
+- Builds in a temporary Docker-in-Docker
+  <br/> (Thrown away at the end of the build)
+
+- Pushes resulting images to registry
+
+---
+
+class: title
+
+# Where it runs
+
+---
+
+# Bare metal on Rackspace 
+
+- What:
+
+  - Docker Hub
+
+  - Registry (except storage)
+
+- Why:
+
+  - Running containers on EC2 used to be... *complicated*
+    <br/>(We know. We've done it for 5 years.)
+
+  - Performance/Price
+
+---
+
+# S3 + CloudFront
+ 
+- What:
+
+  - Registry storage (S3)
+
+  - Image pulls
+
+- Why:
+
+  - It's Web Scale ©
+
+---
+
+# Linode
+
+- What:
+
+  - Automated builds
+
+- Why:
+
+  - Cheap and elastic
+
+  - **Choice**
+
+---
+
+class: title
+
+# Choice
+
+---
+
+# Choice
+
+- At Docker, each team is free to use the best tools for the job
+
+  - language
+
+  - framework
+
+  - infrastructure
+
+  - external services
+
+- Team consensus (≠ every programmer for themselves)
+
+---
+
+class: title
+
+# What we<br/>don't run
+
+---
+
+# Things hosted by third parties
+
+- ElasticSearch: [found.no](http://found.no/)
+
+- Redis: [Redis Labs](http://redislabs.com/)
+
+  - caching
+
+  - formerly queuing
+
+- RabbitMQ
+
+- PostgreSQL: [Heroku Postgres](https://www.heroku.com/postgres)
+
+<br/>
+
+We .red[♥] you!
+
+---
+
+# Why don't we run those things ourselves?
+
+- Our value add: Docker
+
+- Not our value add: running those things
+
+- But: we would like to run them in Docker
+
+- And some of those will become mission-critical
+
+- We might internalize some of them!
+
+---
+
+class: title
+
+# How we build <br/> and deploy
+
+---
+
+# The pipeline
+
+- Private GitHub repositories
+
+- For simple stuff: automated builds
+
+- For complex stuff: private build server
+  <br/> (Basically our own internal highland deployment)
+
+- Private Docker Hub images
+
+- Pre-pulls images on our servers
+
+- Manual "go to production" button
+
+---
+
+# The build process
+
+- Scripts
+
+  - Fig
+
+  - Stacker (predates Fig)
+
+  - others... (remember: **Choice**)
+
+- Everybody is converging to Compose
+
+---
+
+# Y U NO use automated builds?!?
+
+- We want tagged releases
+
+- Automated builds doesn't have it yet
+
+  - `git tag -a v1.0 -m "First stable release"`
+
+  - ... doesn't create (yet) `:v1.0` image
+
+.quote[As soon as I have some time to work on it,
+that's the first thing I'll implement! — Ken]
+
+---
+
+# The "go to production" button
+
+- Blue/green deployment
+
+- Deploy to blue *or* green
+
+- Both run side by side:
+
+  - frontends receive 50% of traffic
+
+  - workers handle 50% of queued tasks
+
+- Check bugsnag, metrics, etc...
+
+- Then tear down green *or* blue
+
+---
+
+# Networking details
+
+- Load balancing: [HAProxy](http://www.haproxy.org/)
+
+  - Config in a bind-mounted volume
+
+  - Config doesn't change
+    <br/> (blue and green run on hard-coded ports)
+
+- High availability: [UCarp](https://github.com/jedisct1/UCarp)
+
+<br/>
+
+Note: they both run in containers!
+
+---
+
+# Things that are not containerized
+
+- Some low-level metrics (collectd, datadog...)
+
+- This might change thanks to Docker 1.5 `--pid=host`
+
+---
+
+class: title
+
+# Docker 1.5<br/>is out!
+
+<br/>
+
+---
+
+class: title
+
+# Docker 1.5<br/>is out!
+
+.small[But I won't talk about it!]
+
+---
+
+class: title
+
+# Future 
+
+---
+
+# Future
+
+- Compose (getting there!)
+
+- Swarm: not yet (it's not production ready)
+
+- Machine: not yet (not significant yet)
+
+- Experimentations with EC2
+
+- Continuous deployment
+
+---
+
+class: title
+
+# That's all folks!
+
+---
+
+# Questions?
+
+- To get those slides, follow me on twitter: [@jpetazzo](https://twitter.com/jpetazzo)
+  <br/>.small[Yes, this is a particularly evil scheme to increase my follower count]
+
+- Also .red[WE ARE HIRING!]
+
+  - infrastructure (servers, metal, and stuff)
+
+  - QA (get paid to break things!)
+
+  - Python (Docker Hub and more)
+
+  - Go (Docker Engine and more)
+
+- Send your resume to jobs@docker.com 
+  <br/>.gray[Do it do it do it NOW NOW!]
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
