@@ -81,6 +81,13 @@ I don't know why they didn't pick something more like Fig, or more
 like the [Docker Compose] project. It might be because almost everything
 else on AWS is in JSON, and they wanted to stick to that.
 
+Note: [Micah Hausler](https://twitter.com/micahhausler) wrote
+[container-transform](https://github.com/ambitioninc/container-transform),
+a tool to convert Fig/Compose YAML files to the ECS task format:
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/jpetazzo">@jpetazzo</a> <a href="https://twitter.com/docker">@docker</a> I wrote a little fig.yml &lt;==&gt; ecs-task.json converter. <a href="https://t.co/brcOtFvLAk">https://t.co/brcOtFvLAk</a></p>&mdash; Micah Hausler (@micahhausler) <a href="https://twitter.com/micahhausler/status/555734176495042560">January 15, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 ### Task
 
