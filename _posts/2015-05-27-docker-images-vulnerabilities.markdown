@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 30% of the images on the Docker Registry contain vulnerabilities
+title: Someone said that 30% of the images on the Docker Registry contain vulnerabilities
 ---
 
 This number is wonderful. Not because it's high or low, but because it
@@ -12,7 +12,7 @@ Disclaimer: I work for Docker, and while this post is not sponsored or
 approved by my employer, you are obviously welcome to take it with a
 grain of salt.
 
-The original number was published on [BanyanOps Blog].
+The original number was published on [BanyanOps Blog]. 
 
 
 ## Counting vulnerabilities
@@ -30,7 +30,7 @@ That looks almost too simple, so let's dive a little bit into the details.
 ### Listing images
 
 Listing **official images** is easy. They are all built using an
-automated system called *stackbrew*, using publicly available recipes.
+automated system called [bashbrew], using publicly available recipes.
 By the way, this means that if you want to rebuild the official
 images yourself, it is very easy to do so. (Keep in mind that some
 of those recipes include blobs and tarballs used for bootstrapping
@@ -70,6 +70,9 @@ In other words, if a layer has the file `/etc/foo.conf` but was removed
 in an upper layer, then that upper layer will have `/etc/.wh.foo.conf`,
 and the file `foo.conf` won't show up in the container. It is masked
 by the whiteout, so to speak.
+
+As it turns out, the amazing [Tianon] actually wrote a [script] to do
+exactly that, if you're interested!
 
 
 ### Auditing the images
@@ -120,7 +123,7 @@ security lists for official images.
 For non-official images, you can check the `Author` field in an image:
 
 ```
-$ docker inspect --format '{{.Author}}' bin/ngrep
+$ docker inspect --format '{{ "{{" }}.Author}}' bin/ngrep
 Jerome Petazzoni <jerome@docker.com>
 ```
 
@@ -219,9 +222,11 @@ container filesystem read-only, warranting that `docker diff`
 will remain empty.
 
 To inspect all your containers with a single command, you can do:
+
 ```
 docker ps -q | xargs -I {} docker diff {}
 ```
+
 (Courtesy of [@diogomonica]!)
 
 
@@ -328,15 +333,18 @@ security.
 
 
 [BanyanOps Blog]: http://www.banyanops.com/blog/analyzing-docker-hub/
+[bashbrew]: https://github.com/docker-library/official-images#bashbrew
 [CIS Docker 1.6 Benchmark]: https://benchmarks.cisecurity.org/downloads/show-single/?file=docker16.100
 [dangerous squid package]: https://bugzilla.redhat.com/show_bug.cgi?id=1202858
 [@diogomonica]: https://twitter.com/diogomonica
 [dockerbench]: http://dockerbench.com/
 [docker-library]: https://github.com/docker-library/official-images/tree/master/library
+[script]: https://github.com/docker/docker/blob/master/contrib/download-frozen-image.sh
 [search]: https://registry.hub.docker.com/search?q=a&t=User
 [security]: https://www.docker.com/resources/security/
 [something nice]: https://registry.hub.docker.com/v2/repositories/
 [Taylor Swift]: https://twitter.com/swiftonsecurity
+[Tianon]: https://twitter.com/tianon
 [thread]: https://github.com/docker-library/official-images/issues/763
 [v1]: https://docs.docker.com/reference/api/registry_api/
 [v2]: https://docs.docker.com/registry/spec/api/
