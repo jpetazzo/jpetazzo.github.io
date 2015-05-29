@@ -347,4 +347,4 @@ security.
 [Tianon]: https://twitter.com/tianon
 [thread]: https://github.com/docker-library/official-images/issues/763
 [v1]: https://docs.docker.com/reference/api/registry_api/
-[v2]: https://docs.docker.com/registry/spec/api/
+[v2]: https://github.com/docker/distribution/blob/master/docs/spec/api.md
