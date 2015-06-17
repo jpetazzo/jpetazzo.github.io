@@ -14,6 +14,9 @@ grain of salt.
 
 The original number was published on [BanyanOps Blog]. 
 
+For more information and another point of view, you can also read
+[this infoQ article](http://www.infoq.com/news/2015/05/Docker-Image-Vulnerabilities).
+
 
 ## Counting vulnerabilities
 
