@@ -108,6 +108,13 @@ and pursue that path if she wants to, rather than getting
 the feeling that she's not welcome in this boy's club.
 
 
+## Further readings
+
+- [Just because it doesn't affect your personally doesn't mean it's not oppressive](
+  http://www.robot-hugs.com/experiences/)
+- (feel free to ping me if you have other resources to recommend on that topic!)
+
+
 [CommitStrip Episode]: http://www.commitstrip.com/en/2015/09/14/mr-robot-my-girlfriend-and-me-spoiler-s01e01/
 [Mr Robot]: http://www.imdb.com/title/tt4158110/
 [much more men than women]: http://www.informationisbeautiful.net/visualizations/diversity-in-tech/
