@@ -13,6 +13,24 @@ you can change that limit, and move container storage to a dedicated
 partition or LVM volume.
 
 
+## Warning
+
+At some point, Docker storage driver internals have changed
+significantly, and the technique described here doesn't work
+anymore. If you want to change the filesystem size for
+Docker containers using the Device Mapper storage driver,
+you should use the `--storage-opt` flag of the Docker Engine.
+
+You can find abundant documentation for the `--storage-opt`
+flag in the [Docker Engine reference documentation[(
+https://docs.docker.com/engine/reference/commandline/daemon/#storage-driver-options).
+
+The rest of this article has been left for historical
+purposes, but take it with a grain of salt. The downside
+of fast-changing, rapidly-evolving software projects is
+that nothing is ever cast in stone! :-)
+
+
 ## How it works
 
 To really understand what we're going to do, let's look how the
@@ -163,7 +181,7 @@ to this container's filesystem. It will be prefixed with `docker-X:Y-Z-`:
 lrwxrwxrwx 1 root root 7 Jan 31 21:04 /dev/mapper/docker-0:37-1471009-4ab0bdde0a0dd663d35993e401055ee0a66c63892ba960680b3386938bda3603 -> ../dm-8
 ```
 
-Note that full name; we will need it. First, let's have a look at the 
+Note that full name; we will need it. First, let's have a look at the
 current *table* for this volume:
 
 ```
@@ -270,7 +288,7 @@ the code changes required are very small. Managing the thin pool
 and its associated metadata is a bit more complex (since there are
 many different scenarios involved, and a potential data migration,
 that we did not cover here, since we wiped out everything when
-building the new pool), but the solutions that we described will 
+building the new pool), but the solutions that we described will
 take you pretty far already.
 
 As usual, if you have further questions or comments, don't hesitate
