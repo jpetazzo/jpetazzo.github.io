@@ -6,7 +6,7 @@ title: “I am a feminist, but…”
 TL,DR: we all have different perceptions and experiences. Just because
 you're fine with a picture, book, movie, etc., doesn't mean that everybody
 will accept it equally well. Even if you are the nicest person in the
-world. Let's accept it, and be aware of each other sensitivities.
+world. Let's accept it, and be aware of each other's sensitivities.
 
 
 ## What am I talking about?
