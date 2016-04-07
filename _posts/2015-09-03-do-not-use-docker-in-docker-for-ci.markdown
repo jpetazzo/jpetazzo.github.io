@@ -169,20 +169,30 @@ Now this container will have access to the Docker socket, and will therefore
 be able to start containers. Except that instead of starting "child" containers,
 it will start "sibling" containers.
 
-If your CI makes use of the Docker binary in scripts, you can include it
-in your CI image, or bind-mount it from the host was well. Example:
+Try it out, using the `docker` official image (which contains the Docker
+binary):
 
 ```
 docker run -v /var/run/docker.sock:/var/run/docker.sock \
-           -v $(which docker):/bin/docker \
-           -ti ubuntu
+           -ti docker
 ```
 
 This looks like Docker-in-Docker, feels like Docker-in-Docker, but it's not
-Docker-in-Docker: when your CI container will create more containers, those
+Docker-in-Docker: when this container will create more containers, those
 containers will be created in the top-level Docker. You will not experience
 nesting side effects, and the build cache will be shared across multiple
 invocations.
+
+⚠️ Former versions of this post advised to bind-mount the `docker` binary
+from the host to the container. **This is not reliable anymore,** because
+the Docker Engine is no longer distributed as (almost) static libraries.
+
+If you want to use e.g. Docker from your Jenkins CI system, you have
+multiple options:
+
+- installing the Docker CLI using your base image's packaging system
+  (i.e. if your image is based on Debian, use .deb packages),
+- using the Docker API.
 
 
 [first version of dind]: https://github.com/jpetazzo/dind/commit/bfbe19c0eec634f66c9f8bac53c6b7c7e0fdb063
