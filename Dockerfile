@@ -8,8 +8,10 @@ RUN apt-get install -yq python-pygments
 RUN apt-get install -yq nodejs
 RUN gem install --no-rdoc --no-ri github-pages
 
-ADD . /blog
+COPY . /blog
 WORKDIR /blog
 
+VOLUME /blog/_site
+
 EXPOSE 4000
-CMD ["jekyll", "serve"]
+CMD ["jekyll", "serve", "--host", "0.0.0.0"]

@@ -1,6 +1,5 @@
 name: "~jpetazzo/"
 author: "Jérôme Petazzoni"
 uri: "http://jpetazzo.github.io"
-markdown: redcarpet
-pygments: true
+highlighter: rouge
 permalink: pretty
