@@ -87,7 +87,7 @@ export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://11.22.33.44:2376"
 export DOCKER_CERT_PATH="/home/docker/.docker/machine/machines/node1"
 export DOCKER_MACHINE_NAME="node1"
-# Run this command to configure your shell: 
+# Run this command to configure your shell:
 # eval $(docker-machine env node1)
 ```
 
@@ -106,12 +106,12 @@ setup to talk to some remote Docker API endpoint secured with TLS,
 we can run the following command:
 
 ```bash
-$ tar -C $DOCKER_CERT_PATH -cf- ca.pem cert.pem key.pem | 
-  docker run --name dockercontrol -i -v /docker \
+$ tar -C $DOCKER_CERT_PATH -cf- ca.pem cert.pem key.pem |
+  docker run --name dockercontrol -i -v /docker busybox \
   sh -c "tar -C /docker -xf-
          echo export DOCKER_HOST=$DOCKER_HOST >>/docker/env
          echo export DOCKER_TLS_VERIFY=1 >>/docker/env
-         echo export DOCKER_CERT_PATH=/docker >>/docker/env"                        
+         echo export DOCKER_CERT_PATH=/docker >>/docker/env"
 ```
 
 This will create a tar archive locally, containing the three PEM files;
