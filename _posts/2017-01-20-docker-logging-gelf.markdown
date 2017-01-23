@@ -32,7 +32,8 @@ In the last scenario, this service can be:
 
 - a proprietary logging mechanism operated by your
   cloud provider, e.g. [AWS CloudWatch] or [Google Stackdriver];
-- provided by a third-party specialized in managing logs, e.g.
+- provided by a third-party specialized in managing logs
+  or events, e.g.
   [Honeycomb], [Loggly], [Splunk], etc.;
 - something running in-house, that you deploy and
   maintain yourself.
@@ -50,9 +51,17 @@ and [running reliable logging systems at scale is hard](https://twitter.com/alic
 Therefore, you certainly want the possibility to send
 your logs to *somebody else* who will deal with the
 complexity (and pain) that comes with real-time storing, indexing, and
-querying of semi-structured data.
+querying of semi-structured data. It's worth mentioning
+that these people can do more than just managing your logs.
+Some systems like [Sentry](https://sentry.io/welcome/) are
+particularly suited to extract insights from errors (think
+traceback dissection); and many modern tools like
+[Honeycomb] will deal not only with logs but also any kind
+of event, letting you crossmatch everything together
+to find out the actual cause of that nasty 3am outage.
 
-But you also want to start with something easy to implement,
+But before getting there,
+you want to start with something easy to implement,
 and free (as much as possible).
 
 That's where container logging comes handy. Just write your
