@@ -14,4 +14,4 @@ WORKDIR /blog
 VOLUME /blog/_site
 
 EXPOSE 4000
-CMD ["jekyll", "serve", "--host", "0.0.0.0"]
+CMD ["jekyll", "serve", "--host", "0.0.0.0", "--incremental"]
