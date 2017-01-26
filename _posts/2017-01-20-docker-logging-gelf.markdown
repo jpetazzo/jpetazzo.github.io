@@ -400,7 +400,7 @@ supports UDP.
 
 At this point, if you're still with us, you might have
 concluded that computing is just a specialized kind of hell,
-that containers are the antechrist, and Docker is the
+that containers are the antichrist, and Docker is the
 harbinger of doom in disguise.
  
 Before drawing hasty conclusions, let's have a look at
