@@ -527,7 +527,7 @@ There are already some GitHub issues related to this:
 [#23679](https://github.com/docker/docker/issues/23679),
 [#17904](https://github.com/docker/docker/issues/17904),
 and [#16330](https://github.com/docker/docker/issues/16330).
-One of the maintiners [has joined the conversation](
+One of the maintainers [has joined the conversation](
 https://twitter.com/berndahlers/status/822508266190237698) and
 there are some people at Docker Inc. who would love to see
 this improved.
