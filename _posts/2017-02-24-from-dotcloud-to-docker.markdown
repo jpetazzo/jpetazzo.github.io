@@ -17,6 +17,14 @@ that you can learn a lot from our past successes and failures.
 At the very least, you will understand why Docker was built
 this way.
 
+*This was initially published as a [guest post] on [Taos]'
+blog. I would like to thank [Julie Gunderson] for inviting
+me to share this with Taos' audience!*
+
+[guest post]: http://www.taos.com/from-dotcloud-to-docker/
+[Taos]: https://www.taos.com/
+[Julie Gunderson]: https://twitter.com/Julie_Gund
+
 
 ## First of all, a disclaimer
 
@@ -25,10 +33,10 @@ recommendations, or whatever. It's important to keep in mind
 that when dotCloud was created (and for quite a while!),
 things were very different:
 
-- EC2 just rolled out support for custom kernels
+- EC2 had just rolled out support for custom kernels
 - EBS had major outages at least once a year
 - Linux 3.0 wasn't out yet
-- Consul or etcd didn't exist
+- Consul and etcd didn't exist
 - Go 1.0 hadn't been released yet
 
 This might help to get some perspective on some of our technical
@@ -60,8 +68,8 @@ when the [Joyent crew runs containers](
 https://docs.joyent.com/public-cloud/api-access/docker),
 they're not messing around. (If you want a taste of
 what it's like to run containers in production like a boss,
-check out [that talk](https://www.youtube.com/watch?v=sYQ8j02wbCY)
-for instance, you'll see what I'm talking about.)
+check out [this talk](https://www.youtube.com/watch?v=sYQ8j02wbCY),
+you'll see what I'm talking about.)
 
 But no Solaris for me! Instead, a friend whose hair and beard
 could rival with Stallman's gave me a Slackware CD in the mid-90s,
@@ -154,7 +162,7 @@ get the list of modifications very easily.
 
 ### Dependency on AUFS
 
-The dotCloud platform ran ca. 5 years, and used AUFS all along. I'm
+The dotCloud platform ran for about 5 years, and used AUFS all along. I'm
 going to be brutally honest: no other option would have worked for us.
 BTRFS used too much memory (and still does), because multiple containers
 running the same image lead to page cache duplication. Device Mapper
@@ -180,7 +188,7 @@ support for BTRFS and Device Mapper to Docker.
 
 ### Entering a running container
 
-Back in the days, you couldn't do the equivalent of `docker exec`
+Back in the day, you couldn't do the equivalent of `docker exec`
 or `nsenter`, because they both rely on the `setns()` system call.
 That system call appeared in Linux 3.0, in 2011. So how did we do,
 then?
@@ -196,15 +204,15 @@ to a serial console.
 This leaves you with two options:
 
 - patch your kernel to add support for the `setns()` system call;
-- run a SSH server in your containers.
+- run an SSH server in your containers.
 
 We did both. We had an abstract execution engine that would use
 `setns()` when available, and fallback to SSH otherwise.
 
 This means that our containers were all running an SSH server.
 I was a huge fan of this SSH server, by the way, because it
-allowed me to do all kinds of cool hacks. That
-might come as a surprise, especially when one knows that I wrote
+allowed me to do all kinds of cool hacks. This
+may come as a surprise, especially when one knows that I wrote
 [this blog post](http://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/),
 but that merely demonstrates my ability to change my mind, amirite?
 
@@ -221,8 +229,8 @@ scratch the surface, you realize that each container has its own long-running
 daemon: it's `lxc-start` (it's similar to `rkt` or `runc`) and you connect
 to it using an abstract socket (from memory, `@/var/lib/lxc/<containername>`).
 
-This is great, because this is simple. At least, it *seems* simple.
-Each container was fully contained (pun not intended) within
+This is great, because it's simple. At least, it *seems* simple.
+Each container was fully contained (so to speak) within
 `/var/lib/dotcloud/<containername>`, so you could move a container
 simply by copying that directory to another machine. Of course,
 copying this directory *while the container is running* requires
@@ -232,8 +240,8 @@ in the fact that a container was just a directory, after all.
 
 ## Of course we couldn't help but build our own RPC layer
 
-Perfect, we have our `dc` tool on our containers nodes; now we need
-to slap an API on top of that, so that you can orchestrate
+Perfect, we have our `dc` tool on our container nodes; now we need
+to slap an API on top of that to orchestrate
 deployments from a central place. Since containers are standalone, the
 process exposing that API doesn't have to be bullet-proof, and you can
 update/upgrade/restart it without being worried about your containers
@@ -246,9 +254,10 @@ return values, and exceptions. MessagePack is similar to JSON, but way
 more efficient. (We didn't care much about efficiency except for the
 high-traffic use cases like metrics and logs.)
 
-If you're curious about ZeroRPC, I presented it at PyCon a few years ago.
-Unfortunately, my french accent was a few orders of magnitude thicker than
-it is today (which says a lot) so you might struggle to understand me, sorry ☹
+If you're curious about ZeroRPC, [I presented it at
+PyCon](https://www.youtube.com/watch?v=9G6-GksU7Ko) a few years ago.
+Unfortunately, my French accent was a few orders of magnitude thicker than it
+is today (which says a lot) so you might struggle to understand me, sorry ☹
 
 ZeroRPC allowed us to expose almost any Python module or class like this:
 
@@ -261,7 +270,7 @@ zerorpc-client tcp://localhost:1234 sleep 4
 
 ZeroRPC also supports some fan-out topologies, including broadcast (all nodes
 receiving the function call; return value is discarded) and worker queue
-(all nodes subscribe to a "hub", you send a function call to the hub,
+(all nodes subscribe to a "hub;" you send a function call to the hub,
 one idle worker will get it, so you get transparent load balancing of requests).
 
 The original ZeroRPC was synchronous, but [François-Xavier Bourlet](
@@ -289,21 +298,21 @@ place.
 So thanks to "hostinfo" we can also list all containers from that central place.
 Cool.
 
-In the very first versions, dotCloud was building your apps "in place", i.e. when
+In the very first versions, dotCloud was building your apps "in place," i.e. when
 you push your code, the code would be copied to a temporary directory in the container
 (while it's still running the previous version of your app!), the build would happen,
 then a switcheroo happens (a symlink is updated to point to the new version) and
-processes are restarted. 
+processes are restarted.
 
 To keep things clean and simple, this build system was managed by a separate service,
-that directly accessed the container data structures on disk. So we had the "container manager",
-"hostinfo", and the "build manager", all accessing a bunch of containers and 
+that directly accessed the container data structures on disk. So we had the "container manager,"
+"hostinfo," and the "build manager," all accessing a bunch of containers and
 configuration files in the same directory (`/var/lib/dotcloud`).
 
-Then we added support for separate builds (probably similar to Heroku's "slugs).
+Then we added support for separate builds (probably similar to Heroku's "slugs").
 The build would happen in a separate container; then that container image would
 be transferred to the right host, and a switcheroo would happen (the old container is
-replaced by the new one). 
+replaced by the new one).
 
 We had the equivalent of volumes, so by making sure that the old and new containers
 were on the same host, this process could be used for stateful apps
@@ -320,8 +329,8 @@ complicated than they could have been. But I digress again!
 To keep things simple and reduce impact to existing systems (at this point, we had
 a bunch of customers that each already generated more than $1K of monthly revenue,
 and we wanted to play safe), when we rolled out that new system, it was managed
-by another service. So now on our hosts we had the "container manager", "hostinfo", 
-the "build manager" (for in place builds), and the "deploy manager".
+by another service. So now on our hosts we had the "container manager," "hostinfo,"
+the "build manager" (for in-place builds), and the "deploy manager."
 
 (Small parenthesis: we didn't transfer full container images, of course. We
 transferred only the AUFS `rw` layer; so that's the equivalent of a two-line
@@ -361,7 +370,7 @@ fail gracefully (e.g. it's OK if metrics collection fails for a few minutes).
 Some operations are really important and you absolutely want to know if
 they went wrong (e.g. the stuff that watches over MySQL replica
 provisioning). Sometimes it's OK to ignore a container for a bit (e.g. for
-metrics) but sometimes you absolutely want to know if it's here (because
+metrics) but sometimes you absolutely want to know if it's there (because
 if it's not, a failover mechanism will spin it up somewhere else; so having
 containers disappearing in a transient manner would be bad).
 
@@ -399,9 +408,9 @@ the various constraints specified in the call (available resources and
 HA token).
 
 
-### And by "orchestration" I meant "scheduling"
+### And by "orchestration" I mean "scheduling"
 
-In theory, any good CS grad student will tell you that this seems a
+In theory, any good CS grad student will tell you that this seems like a
 perfectly good case to use some bin packing algorithm.
 
 In practice, anybody who has worn a pager long enough knows that
@@ -459,7 +468,7 @@ gathering only the first (fastest) replies, to make sure
 that you get a good response time (at the expense of
 correctness if some nodes are overloaded or down).
 
-The main SPOF was the Redis used for locking, and even
+The main single point of failure was the Redis used for locking, and even
 that one was not a big deal since it didn't really
 *store* anything. (We always meant to replace it with
 Zookeeper or Doozer, but it never turned out to be worth
@@ -527,11 +536,11 @@ The process tree now looked like this:
 ```
 
 But now you have a problem: if the docker process is restarted, you
-end up orphaning all your "dockerinits". For simplicity, docker and dockerinit
+end up orphaning all your "dockerinits." For simplicity, docker and dockerinit
 share a bunch of file descriptors (giving access to the container's stdout
 and stderr). The idea was to eventually make dockerinit a full-blown, standalone
 mini-daemon, allowing to pass FDs around across UNIX sockets, buffering logs,
-wahtever would be needed.
+whatever's needed.
 
 Having a daemon to manage the containers (we're talking low-level management
 here, i.e. listing, starting, getting basic metrics) is crucial.
@@ -580,9 +589,9 @@ configuration option.)
 ## Going full cycle
 
 The dotCloud container engine started as a simple, standalone CLI tool.
-It was augmented with a collection of "sidekicks" daemons, each providing
+It was augmented with a collection of "sidekick" daemons, each providing
 a little bit of extra functionality. Eventually, this architecture showed
-its limits. The first version of the Docker Engine gathered all the 
+its limits. The first version of the Docker Engine gathered all the
 features that were deemed necessary in a single daemon.
 Too many features? I don't think so; precisely because these
 features made the success of Docker. The first versions
