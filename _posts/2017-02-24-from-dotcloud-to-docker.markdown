@@ -586,7 +586,7 @@ restart or upgrade the Docker Engine. (This can be achieved with the
 configuration option.)
 
 
-## Going full cycle
+## Going full circle
 
 The dotCloud container engine started as a simple, standalone CLI tool.
 It was augmented with a collection of "sidekick" daemons, each providing
