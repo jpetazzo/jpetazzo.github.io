@@ -400,7 +400,7 @@ supports UDP.
 
 At this point, if you're still with us, you might have
 concluded that computing is just a specialized kind of hell,
-that containers are the antechrist, and Docker is the
+that containers are the antichrist, and Docker is the
 harbinger of doom in disguise.
  
 Before drawing hasty conclusions, let's have a look at
@@ -527,7 +527,7 @@ There are already some GitHub issues related to this:
 [#23679](https://github.com/docker/docker/issues/23679),
 [#17904](https://github.com/docker/docker/issues/17904),
 and [#16330](https://github.com/docker/docker/issues/16330).
-One of the maintiners [has joined the conversation](
+One of the maintainers [has joined the conversation](
 https://twitter.com/berndahlers/status/822508266190237698) and
 there are some people at Docker Inc. who would love to see
 this improved.
