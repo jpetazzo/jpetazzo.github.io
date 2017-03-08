@@ -180,10 +180,16 @@ When we rolled out the first versions of Docker, we *knew* that the
 dependency on AUFS would eventually become an issue. We were
 particularly lucky, in the sense that it became an issue *after*
 Docker got enough traction to convince Red Hat to do a lot of the
-hard work involved to modularize Docker's "graph driver."
+hard work involved to bring Docker to mainstream kernels.
 That's how [Alexander Larsson](https://github.com/alexlarsson)
-and [Vincent Batts](https://github.com/vbatts) ended up bringing
-support for BTRFS and Device Mapper to Docker.
+(and later, [Vincent Batts](https://github.com/vbatts)) ended up
+writing the Device Mapper and BTRFS "graph drivers." On the
+Docker side, core maintainers [Guillaume Charmes](
+https://twitter.com/charme_g),
+[Michael Crosby](https://twitter.com/crosbymichael), [Victor Vieux](
+https://twitter.com/crosbymichael) and [Solomon Hykes](
+https://twitter.com/solomonstre) himself did the heavy lifting
+required to modularize that part of the Docker Engine.
 
 
 ### Entering a running container
