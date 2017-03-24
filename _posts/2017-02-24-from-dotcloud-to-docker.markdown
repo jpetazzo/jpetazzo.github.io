@@ -21,9 +21,16 @@ this way.
 blog. I would like to thank [Julie Gunderson] for inviting
 me to share this with Taos' audience!*
 
+*Also, if you want to know more about the early story
+of dotCloud and Docker, you should read [5 years at Docker]
+by my coworker [Ken Cochrane]. It's pretty dope and
+covers lots of things that I didn't mention there.*
+
 [guest post]: http://www.taos.com/from-dotcloud-to-docker/
 [Taos]: https://www.taos.com/
 [Julie Gunderson]: https://twitter.com/Julie_Gund
+[5 years at Docker]: https://www.kencochrane.net/2017/03/24/5-years-at-docker/
+[Ken Cochrane]: https://twitter.com/KenCochrane
 
 
 ## First of all, a disclaimer
