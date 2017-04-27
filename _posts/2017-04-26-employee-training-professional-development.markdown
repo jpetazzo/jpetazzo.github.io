@@ -18,7 +18,7 @@ mistake me for a native English speaker. My
 *spoken* English was a very different story, though.
 We'll get back to that soon enough!
 
-In 2011, I move to San Francisco to join dotCloud,
+In 2011, I moved to San Francisco to join dotCloud,
 the startup that eventually became Docker. We were
 5, 6 engineers in a coworking space, Founder's Den,
 at 625 3rd Street in San Francisco. My extremely
@@ -33,7 +33,7 @@ fellow compatriot [Sam Alba](https://twitter.com/sam_alba).
 the only one who didn't speak French in the
 office back then. Thanks for keeping up, dude!)
 
-Some day, Solomon's sister visited our office and
+One day, Solomon's sister visited our office and
 filmed us at work. She was shooting a documentary about
 tech startups, and interviewed all of us. That's how I
 realized that my French accent back then was, to
@@ -95,4 +95,16 @@ And if you want to say the same things but with the
 class and words of of [Richard Branson](https://twitter.com/richardbranson): 
 
 *"Train people well enough so they can leave, treat them well enough so they don't want to."*
+
+I'd like to thank [AJ Bowen](https://twitter.com/s0ulshake) for proofreading
+this post. All remaining mistakes and typos are my own. By the way, are you
+looking for a Pythonista who is also fluent in Go? Somebody with outstanding
+interpersonal and communication skills; willing and able to write properly documented
+code; somebody with great attention to details, as in "my CLIs have bash completion"?
+AJ is looking for a remote job. Get in touch with me so we can discuss my
+referral fees ;-)
+
+I'd also like to thank for [Kristie Howard](https://twitter.com/kristiehow)
+who suggested a few changes and improvements to that post, and contributed
+to my never-ending English education. You're the best!
 
