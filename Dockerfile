@@ -6,6 +6,7 @@ RUN apt-get install -yq zlib1g-dev
 RUN apt-get install -yq ruby ruby-dev
 RUN apt-get install -yq python-pygments
 RUN apt-get install -yq nodejs
+RUN apt-get install -yq cmake
 RUN gem install --no-rdoc --no-ri github-pages
 
 COPY . /blog
