@@ -16,7 +16,8 @@ Here is a summary!
 
 ## TL,DR
 
-If you're wondering what I got:
+If you have a machine like mine, with only one USB-C port,
+*and* it without Thunderbolt support, this is what I recommend:
 
 - at home: [Plugable USB-C docking station](https://www.amazon.com/Plugable-Charging-Delivery-Specific-Thunderbolt/dp/B01FKTZLBS/)
 - on the go: [TNP USB-C multi adapter](https://www.amazon.com/TNP-Displayport-Ethernet-Converter-Connector/dp/B07474QTKP/)
@@ -47,6 +48,17 @@ there are smaller adapters that you might like more.
 Both worked out of the box without installing drivers
 (but I had other USB adapters in the past, so perhaps at some
 point I installed a driver that took care of business).
+
+If your machine supports Thunderbolt 3 (like the Macbook Pros,
+which also have more than one USB-C port), you can also look
+at these options:
+
+- this [Thunderbolt 3 Docking Station](https://www.amazon.com/gp/product/B073JDZGKK/)
+  (thanks [Bryan](https://twitter.com/bryanl/status/949005817763844102)
+  for the recommendation!)
+- this [Satechi Hub Adapter](https://www.amazon.com/gp/product/B06XS5CWDG/)
+  (thanks [Hunter](https://twitter.com/twobree/status/949002776612352005)
+  for the recommendation!)
 
 Finally, I'm aware that these adapters are not cheap.
 This is not an extorsionist move from the adapter lobby:
