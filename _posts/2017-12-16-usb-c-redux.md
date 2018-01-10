@@ -51,14 +51,9 @@ point I installed a driver that took care of business).
 
 If your machine supports Thunderbolt 3 (like the Macbook Pros,
 which also have more than one USB-C port), you can also look
-at these options:
-
-- this [Thunderbolt 3 Docking Station](https://www.amazon.com/gp/product/B073JDZGKK/)
-  (thanks [Bryan](https://twitter.com/bryanl/status/949005817763844102)
-  for the recommendation!)
-- this [Satechi Hub Adapter](https://www.amazon.com/gp/product/B06XS5CWDG/)
-  (thanks [Hunter](https://twitter.com/twobree/status/949002776612352005)
-  for the recommendation!)
+at this [Thunderbolt 3 Docking Station](https://www.amazon.com/gp/product/B073JDZGKK/).
+(Thanks [Bryan](https://twitter.com/bryanl/status/949005817763844102)
+for the recommendation!)
 
 Finally, I'm aware that these adapters are not cheap.
 This is not an extorsionist move from the adapter lobby:
