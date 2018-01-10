@@ -45,23 +45,30 @@ selectors.
 Knowing *which* log line comes from *which* container in *which*
 pod would be fantastic, too. 🌈
 
+I wrote my own bashery that basically repeatedly fetches logs
+using `--since` and then does something ugly to remove duplicate lines,
+but then I realized that this was so wrong on so many levels and stopped
+before that code would spring to life and try to devour my face.
+
 I have tried [kail](https://github.com/boz/kail), but the installation was
 far from painless (why can't I just `go get` a Go program? 😭) and it
 doesn't play nice with white terminals (at first, I thought it was buggy
 because a lot of text was in white on a white background).
 
-I have to try [stern](https://github.com/wercker/stern) which looks pretty
-dope too.
+And then there is [stern](https://github.com/wercker/stern) which looks pretty
+dope too. *Update: I tried it! Thanks [@lestrrat](https://twitter.com/lestrrat/status/938551617380540417) for encouraging me to try it by the way.*
 
-Oh, and I wrote my own bashery that basically repeatedly fetches logs
-using `--since` and then does something ugly to remove duplicate lines,
-but then I realized that this was so wrong on so many levels and stopped
-before that code would spring to life and try to devour my face.
+Using stern to view logs is painless.
 
-I just wish this were embedded in the `kubectl` CLI, or that other options
-were easier to setup. (Something that would be installable with `go get`
-would bring me joy and happiness since I could then [install it without
-installing Go](http://jpetazzo.github.io/2016/09/09/go-docker/)!)
+1. [Download](https://github.com/wercker/stern/releases) binary from GitHub.
+2. `chmod +x` the freshly downloaded binary.
+3. `./stern_linux_amd64 pod_or_deployment_or_whatever_name --tail 1 -t`.
+4. Profit!
+
+I just wish this were embedded in the `kubectl` CLI. I would also get
+much joy and happiness from a thing that could be installed with just `go get`
+(without messing with additional dependency management tools)_ since I could
+then [install it without installing Go](http://jpetazzo.github.io/2016/09/09/go-docker/)!
 
 
 ## `kubeadm` token
