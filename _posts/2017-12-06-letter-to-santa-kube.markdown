@@ -45,23 +45,30 @@ selectors.
 Knowing *which* log line comes from *which* container in *which*
 pod would be fantastic, too. 🌈
 
+I wrote my own bashery that basically repeatedly fetches logs
+using `--since` and then does something ugly to remove duplicate lines,
+but then I realized that this was so wrong on so many levels and stopped
+before that code would spring to life and try to devour my face.
+
 I have tried [kail](https://github.com/boz/kail), but the installation was
 far from painless (why can't I just `go get` a Go program? 😭) and it
 doesn't play nice with white terminals (at first, I thought it was buggy
 because a lot of text was in white on a white background).
 
-I have to try [stern](https://github.com/wercker/stern) which looks pretty
-dope too.
+And then there is [stern](https://github.com/wercker/stern) which looks pretty
+dope too. *Update: I tried it! Thanks [@lestrrat](https://twitter.com/lestrrat/status/938551617380540417) for encouraging me to try it by the way.*
 
-Oh, and I wrote my own bashery that basically repeatedly fetches logs
-using `--since` and then does something ugly to remove duplicate lines,
-but then I realized that this was so wrong on so many levels and stopped
-before that code would spring to life and try to devour my face.
+Using stern to view logs is painless.
 
-I just wish this were embedded in the `kubectl` CLI, or that other options
-were easier to setup. (Something that would be installable with `go get`
-would bring me joy and happiness since I could then [install it without
-installing Go](http://jpetazzo.github.io/2016/09/09/go-docker/)!)
+1. [Download](https://github.com/wercker/stern/releases) binary from GitHub.
+2. `chmod +x` the freshly downloaded binary.
+3. `./stern_linux_amd64 pod_or_deployment_or_whatever_name --tail 1 -t`.
+4. Profit!
+
+I just wish this were embedded in the `kubectl` CLI. I would also get
+much joy and happiness from a thing that could be installed with just `go get`
+(without messing with additional dependency management tools)_ since I could
+then [install it without installing Go](http://jpetazzo.github.io/2016/09/09/go-docker/)!
 
 
 ## `kubeadm` token
@@ -138,13 +145,31 @@ but I don't know where.
 
 ## Support recent versions of Docker
 
-Kubernetes officially supports Docker 1.12, 1.13, and 17.03. 
+Kubernetes officially supports Docker 1.12, 1.13, and 17.03.
 Anything [after 17.03](https://github.com/kubernetes/kubernetes/blob/931bc9edf4c0e2bad8352bb931bab8d6201273e1/test/e2e_node/system/docker_validator.go#L39)
 is not supported. Which is kind of sad, because Docker 17.03-ce
 has been EOL for almost 6 months now. 🤷
 
+Why does Kubernetes use such an old version of Docker? Because
+in the early days of Docker, the API had to evolve quickly, and
+breaking changes happened regularly. Building on top of a fast-moving
+API is hard, and this prompted two things: freezing the version
+of Docker used in most Kubernetes deployments, and the development
+of the CRI interface, to support other container engines like rkt,
+CRI-O, and containerd.
+
+Interestingly, the very same thing happened for Docker itself.
+It initially relied on LXC for container execution; and when LXC
+started to evolve too quickly (and when it became impossible to
+support all the different versions of LXC in existence out there),
+Docker introduced libcontainer and promoted it as the primary
+execution engine.
+
+There is a big difference in the two situations, though: LXC
+doesn't have an API. LXC is leveraged by invoking `lxc-start`,
+so the API contract is ... `lxc-start`'s manpage. On the other hand,
 Docker exposes a versioned API, and has been offering backward
-compatibility on that API for a while; and breakages are considered
+compatibility on that API for a while. Breakages are considered
 release critical bugs. In other words: if you use the versioned API
 (i.e. `/v1.31/containers` instead of `/containers`) and stick to a
 given API number, but get a different behavior on a newer version
@@ -153,16 +178,11 @@ as a release critical bug. That means that if you're using Docker CE,
 you can track the latest version (and get bug fixes and new features)
 with the guarantee that if something breaks, people will look at it.
 
-I'm gonna take a cheap shot at my homies working on some other container
-engines there: if 1% of that effort went into using Docker's versioned
-API (instead of doing string comparison on the engine's version number),
-the world would be a much better place for folks running important
-stuff in containers. 🌍🤚🏻📦
-
-Snark aside, I'm glad that the CRI exists and allows to switch container
-runtimes. I'm also glad that stuff like [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet)
-exists and, in some ways, completely sidesteps the issue.
-And finally, I'm glad thta some folks are [doing the right thing](
+I'm glad that the CRI exists, and allows to have multiple options
+for the container engine today. And it's great that in the context
+of Kubernetes, picking one over the other won't (or at least, shouldn't)
+have any impact on the user. But I'm also glad that there are
+[initiatives](
 https://github.com/kubernetes/kubernetes/issues/53221) to support the
 Docker API in a more stable way.
 
@@ -171,6 +191,11 @@ will probably require collaboration from my coworkers as
 well. If you're working on this but need some contacts at Docker to
 move forward, I'll be more than happy to make intros and beg, bribe, seduce,
 or threaten my loved coworkers so that everybody wins at the end!
+
+And while we're here, I'm also going to acknowledge the pretty
+cool stuff that
+[Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet)
+is doing, and that moves the API border at a different level.
 
 
 ## Final words
