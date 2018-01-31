@@ -22,7 +22,7 @@ Docker containers using the Device Mapper storage driver,
 you should use the `--storage-opt` flag of the Docker Engine.
 
 You can find abundant documentation for the `--storage-opt`
-flag in the [Docker Engine reference documentation[(
+flag in the [Docker Engine reference documentation](
 https://docs.docker.com/engine/reference/commandline/daemon/#storage-driver-options).
 
 The rest of this article has been left for historical
