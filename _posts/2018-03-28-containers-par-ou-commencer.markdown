@@ -11,12 +11,11 @@ que vous pouvez utiliser dans votre "voyage" pour adopter cette
 technologie et en tirer le meilleur parti.
 
 > Avant de commencer, une petite page de pub pour le sponsor de
-> ce blog, c'est-à-dire moi-même ! En avril à Paris, nous
-> organisons deux formations. Une formation de deux jours pour
-> prendre en main les conteneurs depuis zéro ; et une formation
-> d'une journée pour approfondir le sujet, en prenant en main
-> Kubernetes. Toutes les informations sont sur [paris.container.training](http://paris.container.training/).
-> Merci de votre attention ! :-)
+> ce blog, c'est-à-dire moi-même ! En septembre à Paris, nous
+> organisons une formation de deux jours sur les containers et
+> Kubernetes. Vous pourrez trouver Le programme détaillé, les tarifs,
+> et toutes les informations nécessaires
+> [ici](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/)!
 
 Si vous connaissez déjà le principe des conteneurs et voulez voir
 la feuille de route que je propose, c'est [par là](#ok-par-où-commencer-) !
@@ -255,28 +254,21 @@ pour démarrer et aller plus loin. Je recommande particulièrement
 les "labs" disponibles sur [training.play-with-docker.com](https://training.play-with-docker.com/).
 
 Si vous préférez être formé en personne, c'est aussi possible !
-Publicité bien ordonnée commence par soi-même : en avril, j'organise
-deux formations à Paris avec [Jérémy Garrouste](https://twitter.com/jeremygarrouste).
-
-- Le 11 et 12 avril, [Introduction aux containers : de la pratique
-  aux bonnes pratiques](http://paris.container.training/intro.html).
-- Le 13 avril, [Introduction à l'orchestration : Kubernetes par
-  l'exemple](http://paris.container.training/kube.html).
-
-La première formation vous permettra d'être à même d'accomplir
-les deux premières étapes décrites dans le plan exposé plus haut.
-
-La seconde formation vous permettra d'aborder les étapes 3 et 4.
+Publicité bien ordonnée commence par soi-même : en septembre, j'organise
+une formation à Paris, vous permettant de sérieusement prendre en
+main Kubernetes en deux jours. Si vous voulez consulter le programme
+détaillé ou vous inscrire, c'est [par ici](
+https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/).
 
 Si vous voulez vous faire une idée de la qualité du contenu de
-ces formations, vous pouvez consulter des vidéos et slides de
+cette formations, vous pouvez consulter des vidéos et slides de
 formations précédentes, par exemple :
 
 - [journée d'introduction à Docker](https://www.youtube.com/playlist?list=PLBAFXs0YjviLgqTum8MkspG_8VzGl6C07)
 - [demi-journée d'introduction à Kubernetes](https://www.youtube.com/playlist?list=PLBAFXs0YjviLrsyydCzxWrIP_1-wkcSHS)
 
 Ces vidéos sont en anglais, mais les formations que je vous propose à
-Paris en avril sont en français (le support de formation, lui, reste en anglais).
+Paris en septembre sont en français (le support de formation, lui, reste en anglais).
 
 Vous pouvez trouver d'autres vidéos, ainsi qu'une collection de supports (slides etc.)
 sur http://container.training/. Cela vous permettra de juger au mieux
