@@ -15,7 +15,7 @@ variées.
 
 > Avant de commencer, une petite page de pub pour le sponsor de
 > ce blog, c'est-à-dire moi-même ! En septembre à Paris, nous
-> organisons une formation de deux jours sur les conteneurs et
+> organisons avec Enix une formation de deux jours sur les conteneurs et
 > Kubernetes. Vous pourrez trouver le programme détaillé, les tarifs,
 > et toutes les informations nécessaires
 > [ici](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/) !
@@ -380,8 +380,8 @@ les « labs » disponibles sur [training.play-with-docker.com](https://training.
 Et en ce qui concerne Kubernetes, idem, vous trouverez de
 nombreux tutoriels et formations, y compris en français.
 
-J'en profite donc pour mentionner une formation que j'organise en
-septembre à Paris, vous permettant de sérieusement prendre en
+J'en profite donc pour mentionner une formation que nous organisons avec Enix en septembre à Paris,
+vous permettant de sérieusement prendre en
 main Kubernetes en deux jours. **Si vous voulez consulter le programme
 détaillé ou vous inscrire, c'est [par ici](
 https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/) !**
