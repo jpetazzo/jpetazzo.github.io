@@ -13,12 +13,10 @@ comment ce *pattern* réduit les risques, et comment les conteneurs
 le rendent accessible à des structures de tailles et de compétences
 variées.
 
-> Avant de commencer, une petite page de pub pour le sponsor de
-> ce blog, c'est-à-dire moi-même ! En septembre à Paris, nous
-> organisons avec Enix une formation de deux jours sur les conteneurs et
-> Kubernetes. Vous pourrez trouver le programme détaillé, les tarifs,
-> et toutes les informations nécessaires
-> [ici](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/) !
+Avant de commencer, une petite page de pub pour le sponsor de
+ce blog, c'est-à-dire moi-même !
+
+{% include ad_fr_short.markdown %}
 
 *If you can't read French and wonder what this post is about: it
 explains how containers can be used to implement immutable
@@ -26,12 +24,9 @@ infrastructures, thus considerably reducing the risks associated
 with application deployment. If you understand English and want
 to know more about this, you can check e.g. [this talk](
 https://www.infoq.com/presentations/immutable-servers-docker)
-that I gave at QCON a few years ago. Also, in september, I will
-be delivering a [two days Kubernetes training in Paris (in French)](
-https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/)
-and another [two days Kubernetes training iN New York (in English)](
-https://conferences.oreilly.com/velocity/vl-ny/public/schedule/detail/69875
-). Thank you!*
+that I gave at QCON a few years ago. Also, I would like you to know this:*
+
+{% include ad_en_short.markdown %}
 
 
 ## Une brève histoire du déploiement
@@ -380,22 +375,6 @@ les « labs » disponibles sur [training.play-with-docker.com](https://training.
 Et en ce qui concerne Kubernetes, idem, vous trouverez de
 nombreux tutoriels et formations, y compris en français.
 
-J'en profite donc pour mentionner une formation que nous organisons avec Enix en septembre à Paris,
-vous permettant de sérieusement prendre en
-main Kubernetes en deux jours. **Si vous voulez consulter le programme
-détaillé ou vous inscrire, c'est [par ici](
-https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/) !**
+Si vous préférez être formé en personne, c'est aussi possible !
 
-Si vous voulez vous faire une idée de la qualité du contenu de
-cette formations, vous pouvez consulter des vidéos et slides de
-formations précédentes, par exemple cette
-[journée d'introduction à Docker](https://www.youtube.com/playlist?list=PLBAFXs0YjviLgqTum8MkspG_8VzGl6C07)
-ou cette [demi-journée d'introduction à Kubernetes](https://www.youtube.com/playlist?list=PLBAFXs0YjviLrsyydCzxWrIP_1-wkcSHS).
-
-Ces vidéos sont en anglais, mais les formations proposées à
-Paris en septembre sont en français (le support de formation, lui, reste en anglais).
-
-Vous pouvez trouver d'autres vidéos, ainsi qu'une collection de supports (slides etc.)
-sur [http://container.training/](http://container.training).
-Cela vous permettra de juger au mieux
-si ces formations sont adaptées à votre besoin !
+{% include ad_fr_long.markdown %}

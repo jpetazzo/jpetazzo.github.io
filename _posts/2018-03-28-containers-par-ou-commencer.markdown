@@ -10,12 +10,10 @@ Docker et Kubernetes. Cet article donne une introduction de haut niveau
 que vous pouvez utiliser dans votre "voyage" pour adopter cette
 technologie et en tirer le meilleur parti.
 
-> Avant de commencer, une petite page de pub pour le sponsor de
-> ce blog, c'est-à-dire moi-même ! En septembre à Paris, nous
-> organisons une formation de deux jours sur les containers et
-> Kubernetes. Vous pourrez trouver Le programme détaillé, les tarifs,
-> et toutes les informations nécessaires
-> [ici](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/)!
+Avant de commencer, une petite page de pub pour le sponsor de
+ce blog, c'est-à-dire moi-même !
+
+{% include ad_fr_short.markdown %}
 
 Si vous connaissez déjà le principe des conteneurs et voulez voir
 la feuille de route que je propose, c'est [par là](#ok-par-où-commencer-) !
@@ -25,7 +23,9 @@ la feuille de route que je propose, c'est [par là](#ok-par-où-commencer-) !
 *If you can't read French and wonder what this post is about: it gives
 a high level intro to containers, as well as a roadmap for someone who
 wants to leverage them to ship and deploy applications faster and more
-reliably.*
+reliably. Also, I would like you to know this:*
+
+{% include ad_en_short.markdown %}
 
 
 ## Pourquoi se mettre aux conteneurs ?
@@ -253,24 +253,4 @@ La communauté Docker est extrêmement riche en tutoriels divers
 pour démarrer et aller plus loin. Je recommande particulièrement
 les "labs" disponibles sur [training.play-with-docker.com](https://training.play-with-docker.com/).
 
-Si vous préférez être formé en personne, c'est aussi possible !
-Publicité bien ordonnée commence par soi-même : en septembre, j'organise
-une formation à Paris, vous permettant de sérieusement prendre en
-main Kubernetes en deux jours. Si vous voulez consulter le programme
-détaillé ou vous inscrire, c'est [par ici](
-https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/).
-
-Si vous voulez vous faire une idée de la qualité du contenu de
-cette formations, vous pouvez consulter des vidéos et slides de
-formations précédentes, par exemple :
-
-- [journée d'introduction à Docker](https://www.youtube.com/playlist?list=PLBAFXs0YjviLgqTum8MkspG_8VzGl6C07)
-- [demi-journée d'introduction à Kubernetes](https://www.youtube.com/playlist?list=PLBAFXs0YjviLrsyydCzxWrIP_1-wkcSHS)
-
-Ces vidéos sont en anglais, mais les formations que je vous propose à
-Paris en septembre sont en français (le support de formation, lui, reste en anglais).
-
-Vous pouvez trouver d'autres vidéos, ainsi qu'une collection de supports (slides etc.)
-sur http://container.training/. Cela vous permettra de juger au mieux
-si ces formations sont adaptées à votre besoin !
-
+{% include ad_fr_long.markdown %}
