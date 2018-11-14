@@ -274,8 +274,8 @@ un *scaling* horizontal si nécessaire).
 
 J'ai annoté le fichier Compose afin d'indiquer en face de chaque
 ligne comment je l'ai traduite en ressources Kubernetes.
-La semaine prochaine, je publierai la seconde partie de cette
-article, dans laquelle je détaillerai point par point comment
+Dans ce [second article](/2018/11/14/docker-compose-kubernetes-2/),
+je vais détailler point par point comment
 j'ai établi la correspondance entre Compose et Kubernetes.
 
 Tout ça a demandé beaucoup de travail ; travail spécifique
@@ -317,7 +317,8 @@ de ressources.
 
 {% include ad_fr_long.markdown %}
 
-*La semaine prochaine, je publierai la seconde partie de cette
-article, qui entrera dans les détails techniques pour expliquer
+*Dans [la seconde partie de cette
+article](/2018/11/14/docker-compose-kubernetes-2/), on va entrer
+dans les détails techniques pour expliquer
 comment on a adapté cette application LAMP pour la faire tourner
 sur Kubernetes!*
