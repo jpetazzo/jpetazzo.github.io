@@ -1,20 +1,16 @@
-J'en profite donc pour mentionner les formations que nous organisons avec [Enix](http://enix.io) à Paris.
+J'en profite donc pour mentionner les formations que nous organisons fin février 2019 au Canada !
 
-En décembre, nous vous proposons [une formation de deux jours
-à Kubernetes](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/), et en janvier,
-[une formation de deux jours aux conteneurs](https://enix.io/fr/services/formation/bien-demarrer-avec-les-conteneurs/).
+Il y aura:
+- [Bien démarrer avec les containers](http://www.elapsetech.com/formation/docker-101) (25 février à Montréal en anglais; 28 février à Québec en français)
+- [Bien démarrer dans l'orchestration de containers avec Kubernetes](http://www.elapsetech.com/formation/kubernetes-101) (26 février à Montréal en anglais; 1er mars à Québec en français)
 
-Si vous voulez vous faire une idée de la qualité du contenu de
-cette formations, vous pouvez consulter des vidéos et slides de
-formations précédentes, par exemple :
+Les deux sessions sont conçues afin de pouvoir être enchaînées
+l'une après l'autre si vous voulez monter en compétence sur
+les containers *et* l'orchestration dans la foulée.
 
-- [journée d'introduction à Docker](https://www.youtube.com/playlist?list=PLBAFXs0YjviLgqTum8MkspG_8VzGl6C07)
-- [demi-journée d'introduction à Kubernetes](https://www.youtube.com/playlist?list=PLBAFXs0YjviLrsyydCzxWrIP_1-wkcSHS)
-
-Ces vidéos sont en anglais, mais les formations proposées à
-Paris sont en français (le support de formation, lui, reste en anglais).
-
-Vous pouvez trouver d'autres vidéos, ainsi qu'une collection de supports (slides etc.)
-sur [http://container.training/](http://container.training).
+Si vous vous demandez à quoi ressemblent ces formations,
+nos supports sont en libre accès sur le site
+[http://container.training/](http://container.training),
+ainsi que quelques vidéos de précédentes formations.
 Cela vous permettra de juger au mieux
-si ces formations sont adaptées à votre besoin !
+si elles sont adaptées à votre besoin !

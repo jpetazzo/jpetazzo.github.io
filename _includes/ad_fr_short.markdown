@@ -1,8 +1,8 @@
-> En décembre, nous organisons avec [Enix](http://enix.io/) 
-> une [formation de deux jours sur l'orchestration avec Kubernetes](https://enix.io/fr/services/formation/deployer-ses-applications-avec-kubernetes/).
-> Et si vous ne vous sentez pas encore prêt à attaquer
-> Kubernetes, nous proposons aussi une
-> [formation de deux jours sur les conteneurs](https://enix.io/fr/services/formation/bien-demarrer-avec-les-conteneurs/)
-> en janvier.
-> Le programme détaillé, les tarifs, et toutes les informations
-> pour s'inscrire sont dans les liens !
+> En février, je serai au Canada pour y dispenser des
+> formations sur les containers! Il y aura
+> [bien démarrer avec les containers](http://www.elapsetech.com/formation/docker-101)
+> et [bien démarrer dans l'orchestration de containers avec Kubernetes](http://www.elapsetech.com/formation/kubernetes-101).
+> Ces deux formations seront proposées à Montréal en anglais,
+> et à Québec en français. Si vous connaissez quelqu'un
+> que ça peut intéresser ... N'hésitez pas à faire suivre ;
+> merci beaucoup ! ♥ 
