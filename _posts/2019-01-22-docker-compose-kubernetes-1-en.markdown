@@ -27,9 +27,10 @@ i.e. myself: ☺
 
 
 When getting started with containers, I usually suggest
-to follow this plan:
+following this plan:
 
-- write a Dockerfile for one service, part of one application,
+- write a Dockerfile for one service, i.e. one component
+  of your application,
   so that this service can run in a container;
 - run the other services of that app in containers as well,
   by writing more Dockerfiles or using pre-built images;
@@ -77,9 +78,9 @@ have totally different meanings! For instance, when using
 Docker Compose, a [service](
 https://docs.docker.com/get-started/part3/#about-services)
 is a set of identical containers (sometimes placed behind
-a load balancer), while when using Kubernetes, a [service](
+a load balancer), whereas with Kubernetes, a [service](
 https://kubernetes.io/docs/concepts/services-networking/service/)
-is a way to access a bunch of ressources (for instance,
+is a way to access a bunch of resources (for instance,
 containers) that don't have a stable network address.
 When there are multiple resources behind a single service,
 that service then acts as a load balancer. Yes, these
@@ -136,8 +137,8 @@ explains this more in depth. We can also read
 https://blog.docker.com/2018/05/kubecon-docker-compose-and-kubernetes-with-docker-for-desktop/
 ).)
 
-This method is fantastic if we are already using Docker
-Enterprise Edition, or if we plan to do so ; because
+This method is fantastic if we're already using Docker
+Enterprise Edition (or plan to), because
 in addition to being the simplest option, it's also the
 most robust, since we'll benefit from Docker Inc's support
 if needed.
@@ -167,20 +168,20 @@ have to do is use `kompose` instead of `docker-compose` for
 most commands. In practice, we'll start our app with
 `kompose up` (instead of `docker-compose up`), for instance.
 
-This method is particularly suitable if we are working
+This method is particularly suitable if we're working
 with a large number of apps, for which we already have
 a bunch of Compose files, and we don't want to maintain
 a second set of files. It's also suitable if our Compose
-files evolve quickly, and we want to avoid divergences
+files evolve quickly, and we want to maintain parity
 between our Compose files and our Kubernetes files.
 
 However, sometimes, the translation produced by Kompose
 will be imperfect, or even outright broken. For instance,
 if we are using local volumes
 (`docker run -v /path/to/data:/data ...`),
-we need to find another way to bring these files inside
-our containers once they run on Kubernetes. (For instance,
-by using [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).)
+we need to find another way to bring these files into
+our containers once they run on Kubernetes.
+(By using [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), for instance.)
 Sometimes, we might want to adapt the application
 architecture: for instance, to ensure that the web server
 and the app server are running together, within the same pod,
@@ -205,7 +206,7 @@ post-processing step on the generated YAML files. However,
 if we maintain a small number of apps (and/or they are very
 different from each other), writing custom post-processing
 scripts suited to every scenario may be a lot of work. And
-even then, it is a good idea to double-check the output
+even then, it's a good idea to double-check the output
 of these scripts a number of times, before letting them
 output YAML that would go straight to production.
 This might warrant even more work; more than you might want
@@ -228,11 +229,11 @@ do their job ourselves, by hand.
 
 Just to make it clear: I'm not suggesting that you do this
 on all your apps (especially if you have many apps!), but
-I would like to show my own technique to convert a Compose
+I would like to show my own technique for converting a Compose
 app into Kubernetes resources.
 
 The basic idea is simple: each line in our Compose file
-must be mapped to something in Kubernetes. If were to
+must be mapped to something in Kubernetes. If I were to
 print the YAML for both my Compose file and my Kubernetes
 resources, and put them side by side, for each line
 in the Compose file, I should be able to draw an arrow
@@ -295,12 +296,12 @@ converted together. Our goal is to build an app template
 that we can reuse, or at least use as a base, for many
 applications.
 
-If the apps differ significantly from each other, there
-is no way around it: we need to convert them one by one.
+If the apps differ significantly, there's no way around it:
+we need to convert them one by one.
 
 In that case, my technique is to tackle the problem
 by both ends. In concrete terms, that means converting
-an app manually, and then think about what we can adapt
+an app manually, and then thinking about what we can adapt
 and tweak so that the original app (running under Compose)
 can be easier to deploy with Kubernetes. Some tiny changes
 can help a lot. For instance, if we connect through another
@@ -333,6 +334,6 @@ its concepts, and various resource types.
 {% include ad_en_long.markdown %}
 
 *In the second part of this article (to be published
-next week), we will dive into the
+next week), we'll dive into the
 technical details and explain how we adapted this LAMP application
 to run it on Kubernetes!*

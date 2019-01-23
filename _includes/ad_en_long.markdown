@@ -1,5 +1,5 @@
 This is the perfect opportunity to bring up the training
-sessions that we organize in February 2019 in Canada!
+sessions that we're organizing in February 2019 in Canada!
 
 There will be:
 - [Getting started with containers](http://www.elapsetech.com/formation/docker-101#English) (February 25th in Montréal in English; February 28th in Québec in French)

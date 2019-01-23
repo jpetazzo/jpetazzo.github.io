@@ -14,7 +14,8 @@ en ressources Kubernetes ?
 *If you can't read French and wonder what this post is about:
 It's an overview of techniques that one can use to
 transform an app described by a Compose file into a set
-of Kubernetes resources.*
+of Kubernetes resources. An [English translation is available](/2019/01/22/docker-compose-kubernetes-1-en/)
+if you're interested!*
 
 Cet article s'inscrit dans une série d'articles en français
 parlant de Docker, Kubernetes, et des conteneurs en général.
