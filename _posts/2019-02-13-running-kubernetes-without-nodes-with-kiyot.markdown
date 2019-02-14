@@ -223,7 +223,7 @@ and exercises on my brand new Kiyot-powered cluster would
 be a good experiment. I was positively impressed by the results.
 
 [kops]: https://github.com/kubernetes/kops
-[Kubernetes training]: https://container/training
+[Kubernetes training]: https://container.training
 
 ![AWS console showing instances created by Milpa and Kiyot](/assets/kiyot-aws-console.png)
 
