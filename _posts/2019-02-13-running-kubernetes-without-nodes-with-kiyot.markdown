@@ -306,4 +306,8 @@ infrastructure bills!), I definitely recommend that you
 check Virtual Kubelet and/or [contact Elotl] to get
 a free trial of Milpa and Kiyot.
 
-[contact Elotl]: https://www.elotl.co/contact 
+*Update: there is now a [Community Edition] available
+for Milpa and Kiyot, suitable for smaller deployments.*
+
+[contact Elotl]:  https://www.elotl.co/kiyotdocs
+[Community Edition]: https://www.elotl.co/trial
