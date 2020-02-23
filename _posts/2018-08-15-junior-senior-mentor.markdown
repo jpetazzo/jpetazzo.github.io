@@ -158,7 +158,7 @@ weeks and even months to properly on-board an engineer. Yes,
 we keep touting how containers help us reduce friction, and how
 good infrastructure and platform tools enable us to push code
 with confidence very early after joining a team; but even with all
-that, every engineer at Facebook goes throuh a [six-week bootcamp](
+that, every engineer at Facebook goes through a [six-week bootcamp](
 https://www.facebook.com/notes/facebook-engineering/facebook-engineering-bootcamp/177577963919/). I've heard a few
 times that it could take 3 to 6 months for engineers at Google
 to reach acceptable levels of productivity. (Keep in mind that
@@ -337,3 +337,4 @@ All these things will pay off quickly and make us more effective!
 *Thanks to [AJ](https://twitter.com/s0ulshake) for proofreading an early
 version of that post and suggesting many fixes and improvements. All
 remaining typos and mistakes are mine.*
+
