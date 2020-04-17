@@ -18,6 +18,7 @@
 [funny things with a green screen]: https://twitter.com/s0ulshake/status/1250456123741700097
 [gphoto2]: http://www.gphoto.org/
 [HyperX Cloud]: https://www.hyperxgaming.com/us/headsets/cloud-gaming-headset
+[IP Webcam]: https://play.google.com/store/apps/details?id=com.pas.webcam
 [leglight]: https://pypi.org/project/leglight/
 [Logitech C920s]: https://www.logitech.com/en-us/product/hd-pro-webcam-c920s
 [Logitech StreamCam]: https://www.logitech.com/en-us/product/streamcam
@@ -33,3 +34,4 @@
 [Sony NEX-C3]: https://en.wikipedia.org/wiki/Sony_NEX-C3
 [Stream Deck]: https://www.elgato.com/en/gaming/stream-deck
 [Three-Point Lighting]: https://en.wikipedia.org/wiki/Three-point_lighting
+[Troubleshooting Troublesome Pods]: https://youtu.be/-DsegUFcENc?t=335

@@ -126,6 +126,20 @@ streaming). That's great, because the interaction and Q&A
 are precisely the parts that I'm comfortable with!
 
 
+## Results
+
+If you want to see what my online talks look like, here
+are a couple of examples:
+
+- [Troubleshooting Troublesome Pods]
+- [FiqueEmCasaConf]
+
+(Note that in both cases, the quality is not as good as it
+could be, because I was streaming to a third person who was
+then re-streaming it to YouTube Live. I hope to have "direct"
+streams soon too, with hopefully a better quality!)
+
+
 ## What's next
 
 In [part 2], I will describe the equipment that I am using

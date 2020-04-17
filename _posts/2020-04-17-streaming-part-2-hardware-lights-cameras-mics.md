@@ -13,6 +13,43 @@ For context, please check [part 1]!
 ![MegaMan 8-bit picture with text saying GET EQUIPPED WITH EQUIPMENT](/assets/get-equipped-with-equipment.png)
 
 
+## Desk and desk placement
+
+**Priority: low to high**
+
+It helps me *a lot* to stand when I'm presenting.
+I suppose that this is irrelevant for most people,
+and that many of you might actually prefer to sit;
+but it is easier for me and I have more energy when
+standing.
+
+I considered using a standing desk (and might end up
+getting one) but for the time being, I've set up my
+streaming laptop on a delivery box and propped up
+the associated monitor.
+
+This section is first and foremost an excuse to show
+you an overview of what my setup looks like!
+
+![Wide angle picture of my desk with both laptops, lights, cameras,
+etc.](/assets/streaming-overview.jpg)
+
+*The cameras that I use are highlighted in red. The mic
+that I use is highlighted in green. The Stream Deck is highligthed
+in light blue.*
+
+There will be more pictures of specific parts when needed.
+
+Note that the darkening curtain that you can see in front of
+the window behind me is typically pulled more to the left,
+so that the window doesn't produce a backlight behind me
+when using the right-hand-side camera.
+Without that curtain, I would probably have to move things around
+a bit.
+
+Now let's move on to the nerdy tech stuff!
+
+
 ## Mic
 
 **Priority: high**
@@ -595,6 +632,19 @@ if needed.
 
 And of course it's an UVC device so it works without requiring
 special drivers.
+
+
+### Using your phone as a camera
+
+If your phone has a good camera, you might be able
+to use it as a webcam.
+
+I did some experiments with [IP Webcam] and got it to
+work. I didn't end up using it, because I don't have an
+arm or holder that would help me prop up the phone in
+a good position. I will give more details about how to
+get that to work in [part 4], since my experiment was
+Linux-specific.
 
 
 ## Monitors
