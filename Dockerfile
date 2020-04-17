@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM debian:buster
 
 RUN apt-get update -q
 RUN apt-get install -yq build-essential make
