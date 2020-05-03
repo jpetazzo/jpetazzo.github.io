@@ -319,11 +319,15 @@ to look around.
 (Strictly speaking, there are some methods to troubleshoot
 our container anyway. We can use `docker cp` to get files out of the
 container; we can use `docker run --net container:` to interact with
-the network stack; and a low-level tool like `nsenter` can be very
-powerful. Recent versions of Kubernetes have the concept of [ephemeral container](
+the network stack; we can interact with the container's processes
+with `docker run --pid container:` or even directly from the host;
+similarly, we can enter the container's various namespaces with
+a low-level tool like `nsenter`.
+Recent versions of Kubernetes have the concept of [ephemeral container](
 https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/),
-though it's still in alpha. And let's keep in mind that all these
-techniques will definitely make our lives more complicated,
+though it's still in alpha. So let's keep in mind that while
+these techniques are available,
+they will definitely make our lives more complicated,
 especially when we have so much to deal with already!)
 
 One workaround here is to use an image like `busybox` or `alpine`
