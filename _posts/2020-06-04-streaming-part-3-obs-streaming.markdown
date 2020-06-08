@@ -53,16 +53,16 @@ and training courses are way, way longer than that. Over the years,
 I learned (consciously or not) a lot of techniques to be as engaging
 as possible and keep my students interested. Many of these techniques
 *do not work* for video content. For instance, walking on the stage,
-pointing things (physically, with my arms and ands) on the screen.
+pointing things (physically, with my arms and hands) on the screen.
 Projecting my voice to different parts of the room. The overall body
 language.
 
 I want my training sessions to be successful, and that means keeping
 people interested. And it's not just their responsibility, but also mine.
-Some folks can stay 100% concentrated when watching a mere screen share.
+Some folks can keep their attention to a screen share.
 I can do it maybe 10 minutes, but certainly not for hours.
-This means deploying many new tricks and techniques, and an engaging,
-dynamic video is one of them. It's obviously not the only one;
+This means deploying many new tricks and techniques. Dynamic video
+content is one of them. It's obviously not the only one;
 and it doesn't work the same way for everyone.
 
 In my case, that means that I want to be able to switch between
