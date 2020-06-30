@@ -705,6 +705,35 @@ computes that it's processing 30 frames per second
 on a 25 frames per second video stream. Whatever.
 
 
+### Using a phone as a webcam in OBS
+
+With the technique described above, your phone is now
+a webcam (technically, a V4L2 device) that can be
+used with any Linux application, including OBS.
+
+But there is another way to use the phone as a
+webcam, specifically with OBS. The app on the phone
+is exposing an MJPEG stream that can be shown in a
+browser. OBS can use a browser as a source.
+So you can display a browser in OBS, and in that
+browser, open the camera stream.
+
+You need to install the OBS "linuxbrowser" plugin.
+(I've generally seen it packaged separately.)
+Then, in OBS, add a source of type "Linux Browser".
+Change the URL to be http://192.168.1.123:8080/video
+(adapt to your phone's IP address, of course) and
+you should be set.
+
+I don't know if this approach is better or worse
+than going through `ffmpeg` and V4L2 loopback.
+While `ffmpeg` and V4L2 loopback involve a few more
+steps, it's likely that their code is a bit more
+optimized than the one in the OBS Linux Browser;
+but that's just a completely unsupported guess
+from me. Try them and see what works best for you!
+
+
 ## All hands on the Stream Deck
 
 Getting the [Stream Deck] to work on Linux was
