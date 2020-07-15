@@ -170,7 +170,7 @@ very moment, 40% of electricity in Germany comes from coal-fired
 power plants](/assets/germany-datacenters-on-coal.png)
 
 If you want to know more about Alpine Linux internals, I recommend
-[this talk](https://dockercon.docker.com/watch/6nK1TVGjuTpFfnZNKEjCEr)
+[this talk](https://www.youtube.com/watch?v=sIG2P9k6EjA)
 by Natanel Copa.
 
 Alright, so Alpine is small. How can we use it for our own applications?
