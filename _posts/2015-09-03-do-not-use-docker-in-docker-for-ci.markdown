@@ -176,7 +176,7 @@ as well as between these containers and their host.
 
 Sysbox also provides optimizations to run containers-in-containers.
 Specifically, when running multiple instances of Docker
-or containerd side by side, it is possible to "seed" them
+side by side, it is possible to "seed" them
 with a shared set of images. This saves both a lot of
 disk space and a lot of time, and I think this makes a huge
 difference when running e.g. Kubernetes nodes in containers.
