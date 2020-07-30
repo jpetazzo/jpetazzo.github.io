@@ -12,6 +12,16 @@ Jenkins container instead.
 Let's see what this means. If you want the short solution without the details,
 just scroll to the bottom of this article. ☺
 
+*Update (July 2020) : when I wrote this blog post
+in 2015, the only way to run Docker-in-Docker was to use the -privileged
+flag in Docker. Today, the landscape is very different. Container
+security and sandboxing advanced very significantly, with e.g.
+[rootless containers] and tools like [sysbox]. The latter lets
+you run Docker-in-Docker without the -privileged flag, and even
+comes with optimizations for some specific scenarios, like running
+multiple nodes of a Kubernetes cluster as ordinary containers.
+This article has been updated to reflect that!*
+
 
 ## Docker-in-Docker: the good
 
@@ -144,7 +154,45 @@ each time you'll restart your Docker-in-Docker container, you
 might be nuking its cache. That's really not cool.
 
 
-## The solution
+## Docker-in-Docker: and then it gets better
+
+You certainly have heard some variant of that famous quote by
+Mark Twain: "They didn't know it was impossible, so they did it."
+
+Many folks tried to run Docker-in-Docker safely.
+A few years ago, I had modest success with user namespaces and
+some really nasty hacks (including mocking the cgroups pseudo-fs
+structure over tmpfs mounts so that the container runtime wouldn't
+complain too much; fun times) but it appeared that a *clean*
+solution would be a major endeavor.
+
+That clean solution exists now: it's called [sysbox].
+Sysbox is an OCI runtime that can be used instead of,
+or in addition to, runc. It makes it possible to run
+"system containers" that would typically require the
+privileged flag, *without* the privileged flag; and
+provides adequate isolation between these containers,
+as well as between these containers and their host.
+
+Sysbox also provides optimizations to run containers-in-containers.
+Specifically, when running multiple instances of Docker
+or containerd side by side, it is possible to "seed" them
+with a shared set of images. This saves both a lot of
+disk space and a lot of time, and I think this makes a huge
+difference when running e.g. Kubernetes nodes in containers.
+
+(Running Kubernetes nodes in containers can be particularly
+useful for CI/CD, when you want to deploy a Kubernetes
+staging app or run tests in its own cluster, without
+the infrastructure cost and time overhead of deploying
+a full cluster on dedicated machines.)
+
+Long story short: if your use case *really absolutely*
+mandates Docker-in-Docker, have a look at [sysbox],
+it might be what you need.
+
+
+## The socket solution
 
 Let's take a step back here. Do you really want Docker-in-Docker?
 Or do you just want to be able to run Docker (specifically: build,
@@ -198,3 +246,6 @@ multiple options:
 [first version of dind]: https://github.com/jpetazzo/dind/commit/bfbe19c0eec634f66c9f8bac53c6b7c7e0fdb063
 [-privileged flag in Docker]: https://github.com/docker/docker/commit/280901e5fbd0c2dabd14d7a9b69a073f6e8f87e4
 [Michael Crosby]: https://twitter.com/crosbymichael
+[Nestybox]: https://www.nestybox.com/
+[rootless containers]: https://rootlesscontaine.rs/
+[sysbox]: https://github.com/nestybox/sysbox-external
