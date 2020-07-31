@@ -377,6 +377,14 @@ du 17 juillet, *brief.me* parle du réchauffement climatique et
 de ses conséquences ... et arrive encore une fois à ne pas
 parler de l'énergie nucléaire.
 
+Je me suis demandé si j'avais une vue biaisée de la situation.
+J'ai fait un petit [sondage sur Twitter] pour demander ce
+que les gens en pensaient. Ça vaut ce que ça vaut, mais sur
+la centaine de personnes ayant répondu, les deux tiers
+pensent que parler de nucléaire en France sans mentionner
+le bilan carbone, c'est délivrer une information partiale.
+Je ne suis donc pas le seul à y penser !
+
 La rédaction de *brief.me* (ou les journalistes
 qui ont travaillé sur ces articles et dossiers) est-elle
 anti-nucléaire ? Considère-t-elle que ce sont deux sujets
@@ -415,6 +423,7 @@ information biaisée).
 [quantité de CO2]: https://www.equilibredesenergies.org/12-10-2018-le-contenu-en-co2-du-kwh/
 [réacteur Astrid]: https://fr.wikipedia.org/wiki/Astrid_(r%C3%A9acteur)
 [remises en question]: https://www.actu-environnement.com/ae/news/nucleaire-demantelement-dechets-edf-taux-actualisation-provision-30389.php4
+[sondage sur Twitter]: https://twitter.com/jpetazzo/status/1280074177467297793
 [Suède]: https://fr.wikipedia.org/wiki/%C3%89nergie_en_Su%C3%A8de
 [un peu moins]: https://ourworldindata.org/safest-sources-of-energy
 [un peu plus]: https://www.visualcapitalist.com/worlds-safest-source-energy/
