@@ -248,4 +248,4 @@ multiple options:
 [Michael Crosby]: https://twitter.com/crosbymichael
 [Nestybox]: https://www.nestybox.com/
 [rootless containers]: https://rootlesscontaine.rs/
-[sysbox]: https://github.com/nestybox/sysbox-external
+[sysbox]: https://github.com/nestybox/sysbox
