@@ -45,7 +45,7 @@ dans le contexte de la lutte contre le réchauffement climatique.
 Dans son édition du [12 septembre 2019], *brief.me* parle
 du « surcoût caché des déchets nucléaires », reprenant
 un rapport de Greenpeace. Cela tombe quelques semaines
-après l'arrêt du [réacteur Astrid], un prototype de
+après l'arrêt du projet de [réacteur Astrid], un prototype de
 réacteur à neutrons rapides qui aurait permis de «&nbsp;brûler »
 certains déchets nucléaires, tout en produisant de l'électricité
 (et donc de l'argent). En particulier, il aurait
@@ -59,18 +59,18 @@ qui aurait justement pu permettre de ... réduire ces déchets.
 
 J'ai contacté la rédaction de *brief.me* pour en savoir plus :
 
-> J'ai été surpris de voir la brève sur l'article de Greenpeace sur les 
+> J'ai été surpris de voir la brève sur l'article de Greenpeace sur les
 > déchets nucléaires, sans la mettre en perspective avec l'arrêt du
-> projet ASTRID, qui avait pour but de réduire ces mêmes déchets 
+> projet ASTRID, qui avait pour but de réduire ces mêmes déchets
 > nucléaires, et auquel Greenpeace s'opposait, justement.
-> 
-> En général, je m'attends à une analyse assez neutre de votre part, et 
-> citer une organisation anti-nucléaire comme Greenpeace ne me paraît 
+>
+> En général, je m'attends à une analyse assez neutre de votre part, et
+> citer une organisation anti-nucléaire comme Greenpeace ne me paraît
 > pas si neutre que ça lorsqu'il n'y a pas de contre-point.
 
 J'ai eu droit à une réponse détaillée :
 
-> Merci pour votre message ! Nous aurions pu mettre l'information que nous avons traitée sur Greenpeace en perspective avec l'arrêt du projet Astrid si nous avions abordé le sujet dans un "Tout s'explique", avec davantage de place, car il aurait fallu en effet dire que Greenpeace s'était opposé au projet mais pas parce qu'il promettait de réduire les déchets nucléaires. L'ONG s'y opposait en raison de l'usage de plutonium. C'est un débat intéressant, mais qui nécessite un développement entier. Or, notre "Ça alors" portait sur ce qui doit être considéré comme des déchets nucléaires et ce qui peut être réutilisé. Greenpeace étant une association militante, nous avons pris ses déclarations avec recul et avons veillé à vérifier si ses propos étaient fondés. Nous nous sommes appuyés sur la Cour des comptes, qui n'est pas un organisme militant. Comme elle soulevait des points allant dans le même sens que Greenpeace, nous avons cherché à avoir un contrepoint de la part d'EDF. Nous avons appelé l'entreprise. Elle nous a demandé d'envoyer un e-mail, mais n'a finalement pas répondu. Nous avons néanmoins recherché ses réponses à la Cour des comptes et ses déclarations à l'AFP. Elles ne sont pas d'une limpidité absolue pour le grand public, mais nous avons veillé à rapporter le fait qu'EDF déclare avoir la situation en mains. 
+> Merci pour votre message ! Nous aurions pu mettre l'information que nous avons traitée sur Greenpeace en perspective avec l'arrêt du projet Astrid si nous avions abordé le sujet dans un "Tout s'explique", avec davantage de place, car il aurait fallu en effet dire que Greenpeace s'était opposé au projet mais pas parce qu'il promettait de réduire les déchets nucléaires. L'ONG s'y opposait en raison de l'usage de plutonium. C'est un débat intéressant, mais qui nécessite un développement entier. Or, notre "Ça alors" portait sur ce qui doit être considéré comme des déchets nucléaires et ce qui peut être réutilisé. Greenpeace étant une association militante, nous avons pris ses déclarations avec recul et avons veillé à vérifier si ses propos étaient fondés. Nous nous sommes appuyés sur la Cour des comptes, qui n'est pas un organisme militant. Comme elle soulevait des points allant dans le même sens que Greenpeace, nous avons cherché à avoir un contrepoint de la part d'EDF. Nous avons appelé l'entreprise. Elle nous a demandé d'envoyer un e-mail, mais n'a finalement pas répondu. Nous avons néanmoins recherché ses réponses à la Cour des comptes et ses déclarations à l'AFP. Elles ne sont pas d'une limpidité absolue pour le grand public, mais nous avons veillé à rapporter le fait qu'EDF déclare avoir la situation en mains.
 
 Cela m'a rassuré de constater qu'il y avait eu vérification
 d'information, même si cela passe à côté d'un détail important :
@@ -120,7 +120,7 @@ nécessite d'avoir un relief adéquat,
 permettant la construction de barrages, par exemple. C'est le cas
 de la [Norvège], qui produit 95% de son électricité de cette manière.
 En revanche, dans des pays comme la France ou l'Allemagne, on a déjà
-installé des barrages à peu près partout là où on pouvait.
+installé des barrages et centrales à peu près partout là où on pouvait.
 On est au max !
 
 **Les énergies solaire et éolienne**
@@ -137,11 +137,11 @@ d'un grand réservoir d'eau situé en hauteur.
 piscine sur pilotis, mais plutôt d'un lac en haut d'une montagne.)
 Quand il y a de l'électricité en rab', la station pompe de l'eau
 vers le haut. Puis, quand on
-a besoin de restituer l'électricité, les pompes se transforment
-en turbines, actionnées par l'eau qui redescend. Là aussi,
+a besoin de restituer l'électricité, on fait redescendre l'eau,
+qui fait alors tourner des turbines. Là aussi,
 on est limité par le terrain (en gros, il faut pouvoir installer
 une gigantesque piscine, de la taille d'un lac, le plus haut possible).
-Et là aussi, on est au max : on en a installé quasiment
+Et là aussi, on est (presque) au max : on en a installé quasiment
 partout là où on pouvait.
 
 Si vous n'êtes pas convaincu·e par ce discours, je vous invite à
@@ -203,7 +203,7 @@ Voici ce que j'ai envoyé à *brief.me* à l'époque :
 > - inclure une citation anti-nucléaire sans présenter de point de vue alternatif,
 > - mentionner les pays qui sortent du nucléaire semble impliquer que ça va dans le sens des choses,
 > - passer complètement sous silence l'aspect décarboné de cette énergie semble bizarre dans le contexte actuel de réchauffement climatique.
-> 
+>
 > Je dis "subtilement anti-nucléaire" dans la mesure où ce n'est pas flagrant, et quand on ne connait pas ce sujet, votre dossier peut paraître impartial.
 
 Voici la réponse que j'ai eue :
@@ -211,7 +211,7 @@ Voici la réponse que j'ai eue :
 > C'est toujours compliqué de rendre un sujet accessible au plus grand nombre, tout en le synthétisant.
 > Nous ne pensons pas avoir manqué de neutralité toutefois, mais nous sommes d'accord avec vous sur le fait que nous aurions au moins pu rappeler par une phrase que l'énergie nucléaire est l'une des énergies qui émet le taux le plus faible de CO2, même si l'enjeu de l'article ne portait pas sur l'impact du nucléaire sur le réchauffement climatique.
 > Concernant les déchets, nous mentionnons bien que seulement "certains mettent plusieurs centaines de milliers d’années à perdre leur radioactivité", alors que le reste des chiffres porte sur l'ensemble des déchets produits.
-> À chacun d'interpréter ensuite ce que signifie la sortie de l'énergie nucléaire de plusieurs pays : bon sens, mauvais sens ? Quoi qu'il en soit, ces décisions se sont multipliées dernièrement, principalement en raison des accidents nucléaires. 
+> À chacun d'interpréter ensuite ce que signifie la sortie de l'énergie nucléaire de plusieurs pays : bon sens, mauvais sens ? Quoi qu'il en soit, ces décisions se sont multipliées dernièrement, principalement en raison des accidents nucléaires.
 
 Je n'ai pas été convaincu, et c'est à ce moment que j'ai commencé
 à penser à écrire cet article.
@@ -244,7 +244,8 @@ Allez, un petit calcul sur un coin de table : en 2017, la
 consommation électrique en France était de 474 TWh. Cela fait
 474 milliards de kWh. Le kWh pour les particuliers est actuellement
 à environ 17 centimes (30 centimes pour l'Allemagne).
-Si on passe à 18 centimes le kWh, on débloque 4,7 milliards d'Euros
+Si on augmente le prix du kWh de 1 centime
+(passant donc à 18 centimes le kWh), on débloque 4,7 milliards d'Euros
 *par an*. Autant dire qu'on a de la marge.
 
 
@@ -288,17 +289,29 @@ de cette cuve. Et du coup, cela permet de voir que la centrale
 peut en fait durer 50, 60 ans, voire plus ; tout en restant aussi
 sûre (voire davantage, car les normes évoluent) qu'à sa conception.
 
+Si vous voulez en savoir plus sur ce sujet, je vous recommande
+cet excellent [article sur la durée de vie des centrales nucléaires]
+qui aborde à la fois les questions techniques et réglementaires.
+
 Il se passe la même chose avec, par exemple, certaines missions
-spatiales de la NASA, comme [Curiosity] ou [Cassini]. Le *rover*
-Curiosity est arrivé sur Mars en 2012, pour une mission qui devait
-durer deux ans. Il y est encore et est pleinement opérationnel.
-Quant à Cassini (qui a exploré Saturne, ses lunes, et ses anneaux),
-c'est une mission qui devait durer de 2004 à 2008, et a été
-étendue jusqu'en ... 2017. Tout ça parce que les matériaux
+spatiales de la NASA.
+La mission [Cassini] (qui devait explorer Saturne, ses lunes, et ses anneaux)
+devait durer de 2004 à 2008, et a été étendue jusqu'en ... 2017.
+Les *rovers* [Spirit] et [Opportunity] sont arrivés sur Mars
+en 2004, pour une mission qui devait durer trois mois.
+Ils ont continuer à fonctionner pendant respectivement 5 et 14 ans.
+Quant à [Curiosity], arrivé sur Mars en 2012, sa mission devait
+durer deux ans. Huit ans plus tard, il y est encore et est pleinement opérationnel.
+Tout ça parce que les matériaux
 et composants ont tenu mieux que prévu, ou bien parce qu'on ne
 savait pas exactement ce qu'il fallait, donc on a compté large.
 Une fois sur place, on se rend compte que cette marge va
 permettre de faire durer la mission plus longtemps.
+
+(Et pour la petite histoire, comme les *rovers* Spirit et Opportunity
+ont eu plusieurs problèmes à cause de la poussière qui
+se déposait sur leurs panneaux solaires, il a été décidé
+d'équiper Curiosity d'un [RTG], un générateur électrique nucléaire.)
 
 
 ### La sûreté nucléaire
@@ -351,7 +364,16 @@ comme celle de [Datteln 4] en mai 2020.
 Conclusion : la fermeture de la centrale de Fessenheim
 va coûter des vies humaines. C'est un fait avéré.
 
-Et puis il y a le réchauffement climatique. Enrayer le
+(Petite clarification : Datteln 4 n'a pas été construite
+spécifiquement pour remplacer Fessenheim. Elle aurait
+certainement été ouverte quand même.
+En revanche, Fessenheim exportait une part significative
+de sa production vers l'Allemagne. Pour remplacer
+cette production, l'Allemagne va devoir solliciter
+davantage ses centrales au charbon.)
+
+Et puis outre la pollution atmosphérique,
+il y a le réchauffement climatique. Enrayer le
 réchauffement climatique va demander des efforts considérables,
 à tous les niveaux. Comme évoqué plus haut, en dépit de
 dépenses pharaoniques, l'Allemagne obtient
@@ -389,7 +411,7 @@ La rédaction de *brief.me* (ou les journalistes
 qui ont travaillé sur ces articles et dossiers) est-elle
 anti-nucléaire ? Considère-t-elle que ce sont deux sujets
 totalement indépendants, déconnectés ?
-Peut-être craint-elle de faire le lien entre les deux 
+Peut-être craint-elle de faire le lien entre les deux
 et d'être critiquée ? Je l'ignore. En tout cas, de mon point
 de vue, ce traitement de l'information contribue à entretenir
 une défiance vis-à-vis de l'énergie nucléaire en France,
@@ -408,6 +430,7 @@ information biaisée).
 [15 juillet 2020]: https://app.brief.me/article/2020-07-15-10645-le-retard-et-le-surcout-de-lepr/
 [4 juillet 2020]: https://app.brief.me/article/2020-07-04-10600-le-difficile-demantelement-des-centrales-nucleaires/
 [8 juillet 2020]: https://app.brief.me/article/2020-07-08-10625-le-haut-conseil-pour-le-climat-publie-son-rapport-annuel/
+[article sur la durée de vie des centrales nucléaires]: https://kakolina.wixsite.com/mywebsite/post/comment-vieillissent-les-centrales-nucl%C3%A9aires
 [brief.me]: https://www.brief.me/
 [Cassini]: https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
 [coût de l'Energiewende]: https://www.erneuerbare-energien.de/EE/Redaktion/DE/Downloads/eeg-in-zahlen-pdf.pdf%3F__blob%3DpublicationFile
@@ -418,11 +441,14 @@ information biaisée).
 [France]: https://fr.wikipedia.org/wiki/%C3%89lectricit%C3%A9_en_France
 [coût de l'électricité]: https://fr.statista.com/infographie/11825/comparaison-cout-electricite-en-europe/
 [Norvège]: https://fr.wikipedia.org/wiki/Hydro%C3%A9lectricit%C3%A9_en_Norv%C3%A8ge
+[Opportunity]: https://en.wikipedia.org/wiki/Opportunity_(rover)
 [pollution des centrales au charbon]: https://env-health.org/IMG/pdf/dark_cloud-full_report_final.pdf
 [pompage-turbinage]: https://fr.wikipedia.org/wiki/Pompage-turbinage
 [quantité de CO2]: https://www.equilibredesenergies.org/12-10-2018-le-contenu-en-co2-du-kwh/
 [réacteur Astrid]: https://fr.wikipedia.org/wiki/Astrid_(r%C3%A9acteur)
 [remises en question]: https://www.actu-environnement.com/ae/news/nucleaire-demantelement-dechets-edf-taux-actualisation-provision-30389.php4
+[RTG]: https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9rateur_thermo%C3%A9lectrique_%C3%A0_radioisotope
+[Spirit]: https://en.wikipedia.org/wiki/Spirit_(rover)
 [sondage sur Twitter]: https://twitter.com/jpetazzo/status/1280074177467297793
 [Suède]: https://fr.wikipedia.org/wiki/%C3%89nergie_en_Su%C3%A8de
 [un peu moins]: https://ourworldindata.org/safest-sources-of-energy
