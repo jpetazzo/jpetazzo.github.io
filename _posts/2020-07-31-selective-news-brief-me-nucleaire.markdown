@@ -46,12 +46,18 @@ Dans son édition du [12 septembre 2019], *brief.me* parle
 du « surcoût caché des déchets nucléaires », reprenant
 un rapport de Greenpeace. Cela tombe quelques semaines
 après l'arrêt du projet de [réacteur Astrid], un prototype de
-réacteur à neutrons rapides qui aurait permis de «&nbsp;brûler »
-certains déchets nucléaires, tout en produisant de l'électricité
-(et donc de l'argent). En particulier, il aurait
-permis de transmuter le plutonium et les actinides mineurs, qui
-sont parmi les déchets nucléaires les plus contraignants,
-car ils ont une haute activité et une vie longue.
+réacteur à neutrons rapides. Les réacteurs à neutrons rapides
+sont plus difficiles à mettre au point (il y en a donc
+très peu en service aujourd'hui).
+En revanche, ils permettent de recycler le combustible
+nucléaire plusieurs fois, voire dans certains cas de « brûler »
+certains déchets nucléaires.
+
+(Pour plus d'information sur le sujet, je vous recommande
+ou bien cet excellent [article sur la filière sodium],
+ou encore cet [article sur le retraitement du plutonium
+et des actinides mineurs] qui se base sur le réacteur
+[BN-800] russe.)
 
 Je suis surpris de voir un encart sur le coût des déchets,
 sans mentionner que l'État vient d'arrêter un projet de recherche
@@ -425,13 +431,21 @@ pas le même recul pour me rendre compte que je lis une
 information biaisée).
 
 
+*Merci à [Tristan Kamin] pour ses commentaires sur certaines
+parties techniques. Toutes les erreurs et imprécisions
+restantes sont les miennes.*
+
+
 [10 fois plus de CO2]: https://environmentalprogress.org/big-news/2017/2/11/german-electricity-was-nearly-10-times-dirtier-than-frances-in-2016
 [12 septembre 2019]: https://app.brief.me/article/2019-09-12-9009-le-surcout-cache-des-dechets-nucleaires/
 [15 juillet 2020]: https://app.brief.me/article/2020-07-15-10645-le-retard-et-le-surcout-de-lepr/
 [4 juillet 2020]: https://app.brief.me/article/2020-07-04-10600-le-difficile-demantelement-des-centrales-nucleaires/
 [8 juillet 2020]: https://app.brief.me/article/2020-07-08-10625-le-haut-conseil-pour-le-climat-publie-son-rapport-annuel/
 [article sur la durée de vie des centrales nucléaires]: https://kakolina.wixsite.com/mywebsite/post/comment-vieillissent-les-centrales-nucl%C3%A9aires
+[article sur la filière sodium]: https://doseequivalentbanana.home.blog/2020/07/11/astrid-et-la-filiere-sodium/
+[article sur le retraitement du plutonium et des actinides mineurs]: https://www.nap.edu/read/11320/chapter/8
 [brief.me]: https://www.brief.me/
+[BN-800]: https://en.wikipedia.org/wiki/BN-800_reactor
 [Cassini]: https://en.wikipedia.org/wiki/Cassini%E2%80%93Huygens
 [coût de l'Energiewende]: https://www.erneuerbare-energien.de/EE/Redaktion/DE/Downloads/eeg-in-zahlen-pdf.pdf%3F__blob%3DpublicationFile
 [Curiosity]: https://en.wikipedia.org/wiki/Curiosity_(rover)
@@ -451,5 +465,6 @@ information biaisée).
 [Spirit]: https://en.wikipedia.org/wiki/Spirit_(rover)
 [sondage sur Twitter]: https://twitter.com/jpetazzo/status/1280074177467297793
 [Suède]: https://fr.wikipedia.org/wiki/%C3%89nergie_en_Su%C3%A8de
+[Tristan Kamin]: https://twitter.com/TristanKamin
 [un peu moins]: https://ourworldindata.org/safest-sources-of-energy
 [un peu plus]: https://www.visualcapitalist.com/worlds-safest-source-energy/
