@@ -28,6 +28,16 @@ getting one) but for the time being, I've set up my
 streaming laptop on a delivery box and propped up
 the associated monitor.
 
+*August 2020 update:* I got a Fully Jarvis standing
+desk and I'm very happy with it. It freed up a lot
+of real estate on the desk (because I don't need the cardboard
+box and the weird wooden thing to prop up the streaming
+laptop). If you get one (or any kind of standing desk),
+I recommend one with memory buttons (so you can switch
+from one position to another very quickly) because it's
+only a small fraction of the overall price and I found
+it very useful.
+
 This section is first and foremost an excuse to show
 you an overview of what my setup looks like!
 
@@ -79,9 +89,9 @@ don't have to worry about variations in volume.
 ### TL,DR
 
 I use a [RØDE Wireless Go] with a cheap lav mic and a cheap
-USB audio interface (no links for the lav mic or the USB
-interface because these were like $10-20 online and I don't
-even remember where and when I got them).
+USB audio interface. The lav mic came with a super cheap kit
+($10-20 online) and the USB audio interface was in
+the same price range (it's an [Audio-Technica ATR2USB]).
 
 Now here is a list of all the things I tried and considered ...
 
@@ -170,8 +180,8 @@ I'm trying to have as little wires as possible.
 And when I want to take a quick break away from the computer,
 having to remove the mic (and then re-equip it again later)
 is annoying. The most important bit is to remember to turn it off
-or mute it before going to the bathroom. Honestly, that might be
-one of the arguments in favor of a wired mic!
+or mute it before going to the bathroom. (Honestly, that might be
+one of the arguments in favor of a wired mic!)
 
 
 ### Gaming headsets
@@ -200,19 +210,29 @@ Don't go *too cheap* though. Make sure that there is no
 weird hum or crackling sounds when you touch the cable.
 Also make sure that the mic doesn't pick up the rustle
 of your shirt, or jewelry that you might be wearing.
+(Particularly important if you have nice, big earrings;
+if they touch the wires of your earbuds when you move
+your head, the result will be very unpleasant for your
+listeners.)
 
 
 ### Bluetooth headsets
 
-Be careful with Bluetooth headsets, even the very fancy
-and expensive one. Some Bluetooth headsets advertise
+You can use a Bluetooth headset to *listen*, but whatever
+you do, *never* use the mic part of any Bluetooth headset:
+it won't sound good. (Yes, even with $200 headsets
+or Air Pods or whatever.)
+
+Some Bluetooth headsets advertise
 a bunch of fancy codecs (like aptX) to get super-duper
 audio quality, but that's only for the audio going
-to your ears. The Bluetooth Headset Profile (HSP)
-used by most headsets (read: pretty much
-all the ones I tried so far?) is made to encode
-voice to be carried by the telephone network, so
-the quality might be far below what you'd expect.
+to your ears. The headset is then usually using the
+A2DP profile.  As soon as you use the headset mic,
+it switches to the Bluetooth Headset Profile (HSP),
+which uses different codecs. These codecs are made to encode
+voice to be carried by the telephone network.
+When placing a phone call, you won't see the difference;
+but when streaming it will be very noticeable.
 
 (If you want to dive into Bluetooth codecs and profiles
 and other details, you can check this excellent
@@ -305,6 +325,9 @@ these lights. It works. The Android app is enough for my needs
 anyway, but if some day, I want to code some automation
 to change the lights with a keyboard shortcut or the Stream Deck,
 I know it'll be possible and easy.
+
+*August 2020 update: eventually, I wrote 10 lines of Python
+so that I could control the lights from my Stream Deck.*
 
 Note that the lights come with telescopic arms that you
 can easily clamp on your desk. The arms and lights are very
@@ -417,7 +440,7 @@ This section might be anticlimactic, because after testing
 a bunch of different things, I end up using simple USB webcams.
 The main thing is not the quality of the camera itself, but
 the fact that it's easy to place it wherever you need it.
-That's what the built-in webcam of my laptop isn't great: it's
+That's why the built-in webcam of my laptop isn't great: it's
 basically a nose cam!
 
 Let's see what I use, and then I'll describe at
@@ -555,7 +578,7 @@ HDMI output is to install a custom firmware. Yes, you read that right!
 I gave it a try, and installed [Magic Lantern] on
 the camera. I've done a bit of reverse engineering a while ago,
 and I must say, Magic Lantern is mind blowing. Mad props
-to  FIXME
+to the folks who put in all that work!
 
 After installing Magic Lantern, I could use the "Clear Overlays"
 feature to remove the focus rectangle. But after 30 minutes,
@@ -578,12 +601,10 @@ uses my Elgato Key Lights.
 
 ![Comparison of my cameras, with key lights](/assets/compare-cams-lights-on.jpg)
 
-*
-Left: EOS1100D with HDMI capture interface.
+*Left: EOS1100D with HDMI capture interface.
 Center: Logitech StreamCam.
 Top right: Logitech C920s.
-Bottom right: integrated webcam (in Thinkpad P51).
-*
+Bottom right: integrated webcam (in Thinkpad P51).*
 
 In my opinion, the colors on the EOS1100D (on the left)
 are a bit more red, and less flattering. I'm aware that this
@@ -645,6 +666,21 @@ arm or holder that would help me prop up the phone in
 a good position. I will give more details about how to
 get that to work in [part 4], since my experiment was
 Linux-specific.
+
+
+### [Razer Kiyo]
+
+*August 2020: I got a Razer Kiyo when they got back
+in stock, because I needed an extra cam and I was curious
+about the LED ring feature.*
+
+The video quality on the Kiyo is pretty good (consistent
+with the C920s and the Streamcam). However, the LED ring
+is quite underwhelming. Sure, it's better than nothing;
+but the light is not very flattering, especially compared
+to what I get with the key lights. I imagine that it could
+be useful when traveling, to have a good webcam without
+carrying a separate light?
 
 
 ## Monitors
@@ -756,6 +792,14 @@ reasons.
    the doorbell, or if my partner calls me, or notifications
    on my phone (which I can silence if I don't want to hear them
    otherwise).
+
+*May 2020 update:* I got the Aeropex, and I'm extremely happy
+with them. They are very light. So light, that I can carry
+them all day long without being bothered by them. (It's
+almost like wearing glasses.) The battery lasts almost all day.
+As noted above in the section above Bluetooth headsets,
+I *do not* use the mic of the Aeropex; I only use them
+to *listen*.
 
 
 ## [Stream Deck]
