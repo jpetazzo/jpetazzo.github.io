@@ -209,8 +209,10 @@ if you want to do exactly what I did, i.e. spin up some
 Kubernetes clusters!
 
 *Note: I added a few screenshots to show what the interface
-looks like, and I'm also in the process of recording a video demo,
-so stay tuned!*
+looks like. And if you prefer something less static, good
+news, I also recorded a [video] to show what it's like!
+It's one of my first videos, so feel free to let me know
+what you think :)*
 
 Step 1: **create an [env0 account]**. (You don't need a credit card.)
 
@@ -487,5 +489,5 @@ bug within a few hours. Kudos!
 [tfenv]: https://github.com/tfutils/tfenv
 [Typhoon]: https://github.com/poseidon/typhoon
 [variables]: https://app.env0.com/variables
-[video]: FIXME
+[video]: https://www.youtube.com/watch?v=87cpZQwwhCc
 [why and how to use per-pull request environments]: https://www.env0.com/blog/why-per-pull-request-environments-and-how
