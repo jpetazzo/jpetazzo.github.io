@@ -14,13 +14,32 @@ to understand how USB-C works, and find the perfect adapters
 Here is a summary!
 
 
+## Update
+
+This was written in 2017. The product recommendations
+in this post are probably not relevant anymore.
+However, the general description of how USB works
+(in particular, USB-C alt modes) is still relevant
+if you're trying to figure this out.
+
+I also recommend to check [this article](https://www.bigmessowires.com/2019/05/19/explaining-4k-60hz-video-through-usb-c-hub/)
+which explains how USB-C data lanes get shared
+when using DP alt modes; it's useful if you plan
+on using high resolution and high frame rates displays
+(think 4K at 60 fps).
+
+
 ## TL,DR
 
-If you have a machine like mine, with only one USB-C port,
-*and* it without Thunderbolt support, this is what I recommend:
+If you have a machine like the one I had, with only one USB-C port,
+*and* without Thunderbolt support, I recommend to get docks
+and dongles similar to these ones:
 
 - at home: [Plugable USB-C docking station](https://www.amazon.com/Plugable-Charging-Delivery-Specific-Thunderbolt/dp/B01FKTZLBS/)
 - on the go: [TNP USB-C multi adapter](https://www.amazon.com/TNP-Displayport-Ethernet-Converter-Connector/dp/B07474QTKP/)
+
+Note that these products may not be available anymore today,
+so you might have to find other ones ... Sorry!
 
 **The docking station is great.** Its only downside (for me!)
 is that it doesn't have a DisplayPort output; but you can get 4K
