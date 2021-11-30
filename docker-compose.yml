@@ -1,6 +1,9 @@
-www:
-  build: .
-  ports:
-  - "4000:4000"
-  volumes:
-  - .:/blog
+version: "3"
+
+services:
+  www:
+    build: .
+    ports:
+    - "4000:4000"
+    volumes:
+    - .:/blog
