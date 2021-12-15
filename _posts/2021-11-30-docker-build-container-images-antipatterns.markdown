@@ -204,6 +204,35 @@ to adding `print()` statements to my code and pushing it all the way through
 CI to staging because I can't `kubectl exec ls`", you might want to reconsider.
 Just saying!
 
+## Zip, tar, and other archives
+
+*(Added December 15th, 2021.)*
+
+It is *generally* a bad idea to add an archive (zip, tar.gz or otherwise)
+to a container image. It is certainly a bad idea if the container
+unpacks that archive when it starts, because it will waste time and
+disk space, without providing any gain whatsoever!
+
+It turns out that Docker images are already compressed when they
+are stored on a registry and when they are pushed to, or pulled from,
+a registry. This means two things:
+
+- storing compressed files in a container image doesn't take less space,
+- storing uncompressed files in a container image doesn't use more space.
+
+If we include an archive (e.g. a tarball) and decompress it when the
+container starts:
+
+- we waste time and CPU cycles, compared to a container image where the data would
+  already be uncompressed and ready to use;
+- we waste disk space, because we end up storing both the compressed and
+  uncompressed data in the container filesystem;
+- if the container runs multiple times, we waste more time, CPU cycles,
+  and disk space each time we run an additional copy of the container.
+
+If you notice that a Dockerfile is copying an archive, it is almost
+always better to uncompress the archive (e.g. using a multi-stage
+build) and copy the uncompressed files.
 
 ## Rebuilding common bases
 
