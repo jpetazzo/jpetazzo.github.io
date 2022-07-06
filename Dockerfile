@@ -1,13 +1,13 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update -q
 RUN apt-get install -yq build-essential make
 RUN apt-get install -yq zlib1g-dev
 RUN apt-get install -yq ruby ruby-dev
-RUN apt-get install -yq python-pygments
+#RUN apt-get install -yq python-pygments
 RUN apt-get install -yq nodejs
 RUN apt-get install -yq cmake
-RUN gem install --no-rdoc --no-ri github-pages
+RUN gem install github-pages
 
 COPY . /blog
 WORKDIR /blog
