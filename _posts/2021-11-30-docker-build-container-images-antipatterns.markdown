@@ -729,8 +729,11 @@ But if it's not helping you to meet your goals, don't do it.*
 
 Thanks for reading!
 
+*Acknowledgements: I would like to thank [Dana Engebretson] for our conversations, as well as her suggestions and feedback while writing this blog post. If you’re looking for a consultant to support machine learning workflows, you should absolutely reach out to her!*
+
 [Bazel]: https://bazel.build/
 [Buildpacks]: https://buildpacks.io/
+[Dana Engebretson]: https://www.linkedin.com/in/dengebretson/
 [distroless]: https://github.com/GoogleContainerTools/distroless
 [Docker-in-Docker in CI]: http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 [Ellen Körbes]: https://twitter.com/ellenkorbes
