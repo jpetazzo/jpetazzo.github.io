@@ -16,7 +16,11 @@ Recently, my Dell XPS 13 main board failed. On that model, the NVMe disk is sold
 
 Since I had to reinstall that system multiple times in the span of a few weeks, I decided to clean up my notes, improve the process a bit (e.g. automate partition creation, store LUKS keys in TPM, enable SecureBoot) and turn that into a blog post in case it's useful to others. The commands are presented in such a way that if you're connecting to the machine over SSH, you can copy-paste 90% of them without having to tweak too many things, and it then takes about 10 minutes from end-to-end to get everything up and running.
 
-Disclaimer: there is nothing special or original about this install process. Most of the information has been gleaned from the Archlinux wiki, in particular the [Installation Guide][archinstallguide]. If you're interested by the SecureBoot + TPM2 + LUKS bits, I found [this Rogue AI blog post][rogueai] and [that blog post my Morten Linderud][mkinitcpio] to be very helpful too.
+Disclaimer: there is nothing special or original about this install process. Most of the information has been gleaned from the Archlinux wiki, in particular the [Installation Guide][archinstallguide]. If you're interested by the SecureBoot + TPM2 + LUKS bits, the following resources have been very helpful:
+- [Rogue AI blog post][rogueai]
+- [Morten Linderud blog post][mkinitcpio]
+- [Lennart Poettering blog post][unlockluks]
+
 
 
 ## Preparation
@@ -278,7 +282,7 @@ If you don't want to use SecureBoot, you can generate an initrd, reboot, and cal
 To generate the initrd, we need to first edit `/etc/mkinitcpio.conf` and update the `HOOKS` line to use the fancy systemd initrd mentioned previously:
 
 ```
-HOOKS=(base systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
+HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
 ```
 
 - `systemd` is here for the partition detection
@@ -381,7 +385,7 @@ Now we need to configure `mkinitcpio` so that it generates UKI in addition to "n
 
 First, if you haven't done it already, edit `/etc/mkinitcpio.conf` and update the `HOOKS` line:
 ```
-HOOKS=(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
+HOOKS=(systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
 ```
 
 Then edit `/etc/mkinitcpio.d/linux.preset`, and uncomment the `default_uki` and `fallback_uki` lines. Change the paths there from `/efi` to `/boot`, since if we have a separate EFI System Partition, it will generally be too small anyway.
@@ -424,13 +428,21 @@ systemd-cryptenroll --tpm2-device=list
 systemd-cryptenroll --recovery-key /dev/gpt-auto-root-luks
 
 # Generate a key in the TPM2 and add it to a key slot in the LUKS device
-systemd-cryptenroll --tpm2-device=auto /dev/gpt-auto-root-luks
+systemd-cryptenroll --tpm2-device=auto /dev/gpt-auto-root-luks --tpm2-pcrs=7
 
 # This is the command to use later, to remove the (insecure) initial password
 #systemd-cryptenroll /dev/gpt-auto-root-luks --wipe-slot=password
 ```
 
-Edit `/etc/mkinitcpio.conf` one more time and edit the `MODULES` line to add the module used by your TPM (as shown above). For instance:
+Note: `--tpm2-pcrs=7` means that the key will be available only with the current Secure Boot state. In other words, if Secure Boot is disabled, or if Secure Boot keys are altered, the key won't be available. This means that if you turn off Secure Boot to boot a rescue ISO, the key won't be available On the other hand, it doesn't measure the kernel and initrds, so if you upgrade your kernel, the key will still be available. Some folks might decide to but an even more restrictive set of PCRs here, but it will then require more work when upgrading kernels. Check the `systemd-cryptenroll(1)` manpage for some details.
+
+Check if your TPM requires a kernel module:
+
+```
+lsmod | grep tpm
+```
+
+If your TPM requires a kernel module, edit `/etc/mkinitcpio.conf` one more time and edit the `MODULES` line to add the module used by your TPM (as identified above). For instance:
 
 ```
 MODULES=(tpm_tis)
@@ -450,3 +462,4 @@ Finally, SecureBoot is not absolutely unbreakable. There are attacks against it.
 [rogueai]: https://rogueai.github.io/posts/arch-luks-tpm/
 [mkinitcpio]: https://linderud.dev/blog/mkinitcpio-v31-and-uefi-stubs/
 [systemdboot]: https://wiki.archlinux.org/title/Systemd-boot
+[unlockluks]: https://0pointer.net/blog/unlocking-luks2-volumes-with-tpm2-fido2-pkcs11-security-hardware-on-systemd-248.html
