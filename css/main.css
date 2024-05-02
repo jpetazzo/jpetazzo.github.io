@@ -212,3 +212,8 @@ ul.posts span {
   vertical-align: top;
   margin-top: -2px;
 }
+
+/* Make tables a bit less cluttered. */
+td {
+  padding-right: 0.5em;
+}
