@@ -284,7 +284,7 @@ some folks brought it up with a lot of enthusiasm.
 Spoiler alert: yes, Nix can help you achieve better builds, but
 the learning curve is steep. Maybe not as steep as with Bazel, but close.
 You will need to learn Nix, its concepts, its custom
-[expression language](https://nixos.wiki/wiki/Nix_Expression_Language),
+[expression language](https://wiki.nixos.org/wiki/Nix_Expression_Language),
 and how to use it to package code for your favorite language and
 framework (see the [nixpkgs manual](https://nixos.org/nixpkgs/manual/#chap-language-support)
 for examples).
