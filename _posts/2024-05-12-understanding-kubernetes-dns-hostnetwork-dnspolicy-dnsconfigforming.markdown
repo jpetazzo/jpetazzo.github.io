@@ -1,16 +1,18 @@
 ---
 layout: post
-title: "Kubernetes DNS, hostNetwork, dnsPolicy, and nameserver limits"
+title: "Understanding DNS resolution on Linux and Kubernetes"
 ---
 
-I recently investigated a warning message on Kubernetes that said: `DNSConfigForming ... Nameserver limits were exceeded, some nameservers have been omitted`. I thought it might be helpful to others to explain how Kubernetes DNS works and how it gets configured to understand that message (and Kubernetes DNS in general).
+I recently investigated a warning message on Kubernetes that said: `DNSConfigForming ... Nameserver limits were exceeded, some nameservers have been omitted`. This was technically a Kubernetes *event* with `type: Warning`, and these usually indicate that there's something wrong, so I wanted to investigate it.
+
+This led me down a pretty deep rabbit hole about DNS resolution on Linux in general and Kubernetes in particular. I thought it might be helpful to others to explain how this all works, just in case you have to troubleshoot a DNS issue some day (and as we now, [it's always DNS][isitdns]) on Linux or on Kubernetes.
 
 
 ## Kubernetes DNS in theory
 
 Kubernetes provides DNS-based service discovery. When we create a service named `foo` in namespace `bar`, Kubernetes creates a DNS entry, `foo.bar.svc.cluster.local`, that resolves to that service's `ClusterIP`.
 
-Any pod in the cluster can resolve `foo.bar` or `foo.bar.svc` and obtain that service's `ClusterIP`. Any pod in the same `bar` namespace can even just resulve `foo` to obtain that `ClusterIP`.
+Any pod in the cluster can resolve `foo.bar` or `foo.bar.svc` and obtain that service's `ClusterIP`. Any pod in the same `bar` namespace can even just resolve `foo` to obtain that `ClusterIP`.
 
 This means that when we write code that will run on Kubernetes, if we need to connect to a database, we can put `db` as the database name (instead of hardcoding an IP address) or e.g. `db.prod` if we want to connect to service `db` in namespace `prod`.
 
@@ -19,7 +21,7 @@ This is convenient, because a similar mechanism exists in e.g. Docker Compose; w
 Now, how does that work behind the scenes?
 
 
-## DNS resolution on Linux (level 1)
+## DNS resolution on Linux (level 1: resolv.conf)
 
 At a first glance, DNS resolution on Linux is configured through `/etc/resolv.conf`. A typical `resolv.conf` file can look like this:
 
@@ -49,7 +51,7 @@ There are some limits and "fine print":
 You can see extra details in the `resolv.conf(5)` man page, which explains for instance how to change timeout values, number of retries, and that kind of stuff.
 
 
-## DNS resolution on Linux (level 2)
+## DNS resolution on Linux (level 2: nsswitch.conf)
 
 Perhaps you've come across `.local` names. For instance, on my LAN at home, I can ping the machine named `zagreb` with `ping zagreb.local`:
 
@@ -85,11 +87,11 @@ There would be a lot to unpack there. I won't dive into all the little details b
 You might also come across `resolve`, which uses `systemd-resolved` for name resolution. That's a totally different system with its own configuration and settings, and it's mostly irrelevant to Kubernetes, so we won't talk about it here.
 
 
-## DNS resolution on Linux (level 3)
+## DNS resolution on Linux (level 3: musl and systemd-resolved)
 
 Everything we explained in the two previous sections only applies to programs using the GNU libc, or "glibc". This is the system library used on *almost* every Linux distribution, with the notable exception of Alpine Linux, which uses musl instead of glibc.
 
-The musl name resolver is much simpler: there is no NSS (name service switch), and DNS resolution is configured exclusively through `/etc/resolv.conf`. It also behaves a bit differently (it sends queries to all servers in parallel instead of one at a time). You can see more details in [that page][musl-glibc], which explains differences between musl and glibc.
+The musl name resolver is much simpler: there is no NSS (name service switch), and DNS resolution is configured exclusively through `/etc/resolv.conf`. It also behaves a bit differently (it sends queries to all servers in parallel instead of one at a time). You can see more details in [this page][musl-glibc], which explains differences between musl and glibc.
 
 This is relevant because Alpine is used in many container images, especially when optimizing container image size. Some images based on Alpine can be 10x smaller than their non-Alpine counterparts. Of course, the exact gains will depend a lot on the program, its dependencies, etc, but this explains why Alpine is quite common in the container ecosystem.
 
@@ -107,9 +109,9 @@ When using `systemd-resolved`:
 That last item is relevant to Kubernetes, as we will see later, because `kubelet` will sometimes need that `resolv.conf` file.
 
 
-## DNS resolution on Kubernetes (level 1)
+## DNS resolution on Kubernetes (level 1: kube-dns)
 
-Equipped with all that DNS configuration knowledge, let's have a look at the `/etc/resolv.conf` file in a Kubernetes pod. It will look like this:
+Equipped with all that DNS configuration knowledge, let's have a look at the `/etc/resolv.conf` file in a Kubernetes pod. That particular pod is in the `default` namespace, and its `resolv.conf` file will look like this:
 
 ```
 search default.svc.cluster.local svc.cluster.local cluster.local
@@ -129,11 +131,11 @@ The exact IP address might be different in your cluster. It is often the 10th ho
 
 That `kube-dns` service will typically be configured together with a `coredns` deployment; and that `coredns` deployment will be configured to serve Kubernetes DNS records (like the `foo.bar.svc.cluster.local` mentioned earlier) and to pass queries for external names to an upstream server.
 
-Note: it's also possible to use something else than CoreDNS. In fact, early versions of Kubernetes (up to 1.10) used a custom server called `kube-dns`, and that's why the service still has that name. And some folks replace CoreDNS, or add a host-local cache, to improve performance and work around some issues in high-traffic scenarios. You can check [that KubeCon presentation][switching-dns-engine] for an example. (Even if it's a few years old, that presentation still does a great job at explaining DNS mechanisms, and the ideas and techniques that it explains are still highly releveant today!)
+Note: it's also possible to use something other than CoreDNS. In fact, early versions of Kubernetes (up to 1.10) used a custom server called `kube-dns`, and that's why the service still has that name. And some folks replace CoreDNS, or add a host-local cache, to improve performance and work around some issues in high-traffic scenarios. You can check [this KubeCon presentation][switching-dns-engine] for an example. (Even if it's a few years old, that presentation still does a great job at explaining DNS mechanisms, and the ideas and techniques that it explains are still highly releveant today!)
 
 Now, let's look at the `search` line. It basically means that when we try to resolve `foo`, we'll try, in this order:
 
-- `foo.default.svc.cluster.local`, which corresponds to "the `foo` service in the current namespace";
+- `foo.default.svc.cluster.local`, which corresponds to "the `foo` service in the same namespace as the pod";
 - `foo.svc.cluster.local`, which doesn't correspond to anything in that case, but would be useful if we were trying to resolve `foo.bar`, because it would then correspond to "the `foo` service in the `bar` namespace";
 - `foo.cluster.local`, which again doesn't correspond to anything in that case, but would be useful if we were trying to resolve `foo.bar.svc`;
 - `foo` on its own, which also doesn't resolve to anything.
@@ -149,7 +151,7 @@ This means that in our code, we can connect to, e.g.:
 Phew! Well, of course, there are some little details to be aware of.
 
 
-## DNS resolution on Kubernetes (level 2)
+## DNS resolution on Kubernetes (level 2: customization)
 
 Let's start with the easier things: the `cluster.local` suffix can be changed. It's typically configured when setting up the cluster, similarly to e.g. the Cluster IP subnet. It requires updating the kubelet configuration, as well as the CoreDNS configuration. Changing that suffix is rarely necessary, except if we want to connect multiple clusters together, and enable one cluster to resolve names of services running on another cluster. It's fairly unusual, except when running huge applications - huge in the sense that they won't fit on a single cluster; or we don't want to fit them on a single cluster for various reasons.
 
@@ -162,7 +164,7 @@ This prompts a question: if we want to resolve `api.example.com`, how can we avo
 Is that all we need to know about Kubernetes DNS? Not quite.
 
 
-## DNS resolution on Kubernetes (level 3)
+## DNS resolution on Kubernetes (level 3: dnsPolicy)
 
 "Normal" pods will have a DNS configuration like the one shown previously - reproduced here for convenience:
 
@@ -183,7 +185,7 @@ You can find all the details about that `dnsPolicy` field and its possible value
 When using the DNS configuration of the host, Kubernetes (technically, `kubelet`) will use `/etc/resolv.conf` on the host - or, if it detects that the host is using `systemd-resolved`, it will use `/run/systemd/resolve/resolv.conf` instead. There is also a `kubelet` option, `--resolv-conf`, to instruct it to use a different file.
 
 
-## `Nameserver limits were exceeded`
+## Back to `Nameserver limits were exceeded`
 
 Let's come back to our error message.
 
@@ -240,7 +242,7 @@ Good news: it's totally harmless.
 
 While this post didn't give us a way to easily and reliably get rid of that error message, we hope that it gave you lots of insightful details about how DNS works - on Kubernetes, but on modern Linux systems in general as well!
 
-
+[isitdns]: https://isitdns.com/
 [musl-glibc]: https://wiki.musl-libc.org/functional-differences-from-glibc.html
 [switching-dns-engine]: https://www.youtube.com/watch?v=Il-yzqBrUdo
 [pod-dns-policy]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
