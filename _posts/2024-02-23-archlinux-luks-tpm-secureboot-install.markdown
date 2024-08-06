@@ -450,6 +450,34 @@ MODULES=(tpm_tis)
 
 Run `mkinitcpio --allpresets` one more time, reboot, and this time you shouldn't have to enter a password to unlock the root volume!
 
+<!--
+
+That part doesn't quite work yet (couldn't get FIDO2 token to work at boot time; and this is hard to debug because systemd initrd makes it neigh impossible to get a shell 😤)
+
+## Enrolling a FIDO2 security token
+
+If something goes wrong, you will have to type your password or your recovery key. For safety, these should be long and complicated; but this means that it will be inconvenient to type them. Another option is to use a FIDO2 token (for instance a Yubikey).
+
+To do that, install the FIDO2 optional library and tools:
+
+```
+pacman -S libfido2
+```
+
+Check that your FIDO2 token is detected:
+
+```
+fido2-token -L
+fido2-token -I /dev/hidrawXXX
+```
+
+Enroll it:
+
+```
+systemd-cryptenroll --fido2-device=auto
+```
+
+-->
 
 ## Wrapping up
 
