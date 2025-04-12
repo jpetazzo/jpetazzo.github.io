@@ -104,8 +104,9 @@ One particular item was my screen sharing configuration. The general idea is to 
 
 With Xorg, it is possible to [use xrandr to split a physical monitor into multiple virtual monitors][xrandr-set-monitor]. I was splitting one of my 4K monitors that way (with [this script][sstk-xorg]).
 
-This doesn't work anymore with Wayland. I tried a few different things, and eventually settled for a virtual monitor too; but the key difference is that the virtual monitor in Wayland is completely virtual and off-screen, which means that you don't see it at all. To be able to see what's happening on that screen, I've used [wl-mirror] (which is unfortunately not very reliable) or an OBS preview projector (which worked fine for me). You can see the script that I'm using to create the virtual screen and assign workspaces to it [here][sstk-wayland].
+This doesn't work anymore with Wayland. I tried a few different things, and eventually settled for a virtual monitor too; but the key difference is that the virtual monitor in Wayland is completely virtual and off-screen, which means that you don't see it at all. To be able to see what's happening on that screen, I've used [wl-mirror] ~~(which is unfortunately not very reliable)~~ or an OBS preview projector. You can see the script that I'm using to create the virtual screen and assign workspaces to it [here][sstk-wayland].
 
+*Note: when I wrote this post in April 2024, I had some issues with wl-mirror. Specifically, in some circumstances, it wouldn't update (the mirrored window wouldn't reflect changes in the original display). The author of wl-mirror contacted me in April 2025 to ask me for details. I tried to reproduce the issue, and... I'm excited to report that it seems to work flawlessly now! 🥳*
 
 ## Switching back and forth
 
