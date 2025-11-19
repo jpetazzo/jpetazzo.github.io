@@ -148,7 +148,7 @@ Finally, after changing the `ConfigMap`, we need to make
 sure that CoreDNS uses it. To achieve that, we'll use a
 resource called `kubernetes_annotations`, which adds annotations
 to existing resources, and has the ability to add annotations
-to *templates insides resources*.
+to *templates inside resources*.
 
 Specifically, we're adding an annotation to the `coredns` `Deployment`
 pod template.
